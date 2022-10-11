@@ -1,0 +1,18 @@
+{
+  "name": "CCH",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^7.4.0",
+    "create-react-app": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "server":"cd back && nodemon server",
+    "client":"cd front && yarn start",
+    "start":"concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  }
+}
