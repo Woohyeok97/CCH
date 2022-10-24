@@ -1,0 +1,10 @@
+.a {
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    text-align: center;
+}
+
+.전체 {
+    display: flex; 
+}
