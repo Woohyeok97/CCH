@@ -10,7 +10,7 @@ import LoginWrap from '../component/main/loginWrap'
 
 function Main() {
   return(
-  <AppWrap background='#FDD000' >
+  <AppWrap background='#FDDF3F' >
     <Intro/>
     <LoginWrap/>
     <Footer/>

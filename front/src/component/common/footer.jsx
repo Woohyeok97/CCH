@@ -9,7 +9,7 @@ function Footer() {
       display : flex;
       justify-content : center;
       align-items : center;
-      background-color : #FDD000;
+      background-color : #FDDF3F;
 
     > p {
       font-weight : 800;

@@ -9,7 +9,7 @@ function Header({ children }) {
     display : flex;
     justify-content : center;
     align-items : center;
-    background-color : #FDD000;
+    background-color : #FDDF3F;
     font-size : 2rem;
     font-weight : 800;
   `
