@@ -49,16 +49,24 @@ const SIZE = {
 }
 
 const COLOR = {
-  black : css`
+  brown : css`
     color : #FFF9EC;
     background-color : #402E32;
     &:hover, active, focus { background-color : #5F4741; }
   `,
-
   yellow : css`
-    background-color :
-    &:hover, active, focus {}
+    background-color : #FDDF3F;
+    &:hover, active, focus { background-color : #FDDF3F; }
   `,
+  black : css`
+  color : #FFF9EC;
+  background-color : #000000;
+  &:hover, active, focus { background-color : #444444; }
+  `,
+  green : css`
+  background-color : #49ADFF;
+  &:hover, active, focus { background-color : #76C8FF; }
+  `
 }
 
 

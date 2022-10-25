@@ -10,7 +10,7 @@ function AppWrap({ children, background }) {
     height : 100%;
     position : relative;
 
-    background : ${(props)=> props.background || 'white' };
+    background : ${(props)=> props.background || '#FFF9E8' };
   `
 
   return(

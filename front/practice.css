@@ -7,4 +7,5 @@
 
 .전체 {
     display: flex; 
+    flex-direction: column;
 }
