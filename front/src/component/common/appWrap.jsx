@@ -9,7 +9,6 @@ function AppWrap({ children, background }) {
     flex-direction: column;
     height : 100%;
     position : relative;
-
     background : ${(props)=> props.background || '#FFF9E8' };
   `
 
