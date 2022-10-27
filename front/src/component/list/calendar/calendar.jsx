@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { format, addMonths, subMonths, addDays, isSameMonth, isSameDay } from 'date-fns'
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek,} from 'date-fns'
-import './aa.css'
+import '../aa.css'
 
 function Calendar() {
 
@@ -87,7 +87,7 @@ function Cell({ 현재월, 날짜선택 }) {
 }
 
 const CalendarStyle = styled.section`
-    flex-basis : 60%;
+    flex-basis : 70%;
     display : flex;
     flex-direction : column;
     justify-content : center;
