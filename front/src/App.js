@@ -5,7 +5,6 @@ import { Routes, Route } from 'react-router-dom'
 // Pages
 import Main from './page/main'
 import List from './page/list'
-import Detail from './page/detail'
 import Upload from './page/upload'
 import Login from './page/login'
 
