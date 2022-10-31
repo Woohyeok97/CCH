@@ -6,7 +6,7 @@ import { addDays, format, isSameMonth, isSameDay } from "date-fns";
 import LayoutBox from "../../common/layoutBox";
 
 
-function CalendarCell({ currentDate }) {
+function CalendarCell({ currentDate, selectDate, setSelectDate }) {
 
   const CellRow = styled.div`
     flex-basis : 20%;
@@ -28,6 +28,10 @@ function CalendarCell({ currentDate }) {
     > .disabled {
       color : #DFE0DF;
     }
+
+    > .same {
+      color : red;
+    }
   `
 
 
@@ -39,26 +43,24 @@ function CalendarCell({ currentDate }) {
   let day = startDay
   let days = []
   let cell = []
-  let 날짜표시 = ''
 
   while(day <= endDay) {
     for(let i = 0; i < 7; i++) {
-      날짜표시 = format(day, 'd')
-
-      days.push( 
-      <div className={`${ 
-        !isSameMonth(day, monthEnd) ? 'disabled' :  
-        isSameDay(day, currentDate) ? 'today' : '' }  cell-item ` }>{ 날짜표시 }</div> )
+      days = [...days, day]
       day = addDays(day, 1)
     }
-
-    cell.push(<CellRow>{days}</CellRow>)
-    days = []
+    cell.push(days)
+    days = [];
   }
+ 
 
   return(
     <LayoutBox direction="column" basis="70%">
-      { cell }
+    { cell.map( a => { 
+      return <CellRow>{ a.map( a => { 
+        return <div className={`${!isSameMonth(a, monthEnd) ? 'disabled' : isSameDay(a, selectDate) ? 'same' : '' } cell-item `}
+        onClick={()=>{ setSelectDate(a) }}>{format(a, 'd')}</div> }) }</CellRow>
+    }) }
     </LayoutBox>
     
   )
