@@ -6,6 +6,7 @@ import { format } from 'date-fns'
 function CalendarHeader({ currentDate, prevMonth, nextMonth }) {
 
   const CalendarHeader = styled.div`
+    flex-basis : 7%;
     display : flex;
     justify-content : center;
     background-color : #FDDF3F;

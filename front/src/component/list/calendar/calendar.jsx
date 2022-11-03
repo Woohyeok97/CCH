@@ -18,13 +18,13 @@ function Calendar() {
   console.log(selectDate)
 
   return (
-    <LayoutBox basis="70%" direction="column" justify="start">
+    <LayoutBox basis="80%" direction="column" justify="start">
       {/* 캘린더헤더 */}
       <CalendarHeader currentDate={currentDate} prevMonth={prevMonth} nextMonth={nextMonth}/>
       {/* 캘린더요일 */}
       <CalendarDay/>
       {/* 캘린더셀 */}
-      <LayoutBox direction="column" basis="70%">
+      <LayoutBox direction="column" basis="90%">
         <CalendarCell currentDate={currentDate}  selectDate={selectDate} setSelectDate={setSelectDate}/>
       </LayoutBox>
     </LayoutBox>

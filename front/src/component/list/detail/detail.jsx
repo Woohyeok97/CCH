@@ -16,6 +16,8 @@ function Detail() {
     padding : 0 24px;
     border-left : 2px solid #DFE0DF;
   `
+
+
   const text = `다이어트중에 
 
   초밥한판 다쳐먹은 나 칭찬해~`
@@ -23,8 +25,8 @@ function Detail() {
   return(
     <Detail>
       <DetailHeader/>
-      { isImage ? <ContentImage/> : null }  
-      <ContentText value={text}/>
+        { isImage ? <ContentImage/> : null }  
+        <ContentText value={text}/>
     </Detail>
   )
 }

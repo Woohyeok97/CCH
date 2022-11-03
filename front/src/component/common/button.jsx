@@ -56,7 +56,7 @@ const COLOR = {
   `,
   yellow : css`
     background-color : #FDDF3F;
-    &:hover, active, focus { background-color : #FDDF3F; }
+    &:hover, active, focus { background-color : #FDE96E; }
   `,
   black : css`
   color : #FFF9EC;

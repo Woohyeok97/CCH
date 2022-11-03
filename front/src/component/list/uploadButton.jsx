@@ -9,7 +9,8 @@ function UploadButton() {
     display : flex;
     flex-basis : 20%;
     justify-content : center;
-    align-items : center;
+    align-items : start;
+    padding-top : 36px;
   `
   return (
     <UploadButton>

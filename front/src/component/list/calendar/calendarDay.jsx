@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 function CalendarDay() {
   const CalendarDay = styled.div`
+    flex-basis : 3%;
     display : flex;
     padding : 12px;
     background-color : #FDDF3F;

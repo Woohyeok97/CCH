@@ -11,13 +11,18 @@ import UploadButton from '../component/list/uploadButton'
 
 function List() {
   return(
-    <Appwrap background='#FFF9EE'>
+    <Appwrap background='#FEFBEA'>
       <Header>칭찬모아보기</Header>
       <LayoutBox basis="90%">
-        <Calendar/>
+        <LayoutBox direction="column" basis="70%">
+          <Calendar/>
+          <UploadButton/>
+        </LayoutBox>
         <Detail/>
       </LayoutBox>
-      {/* <UploadButton/> */}
+        
+        
+        
     </Appwrap>
   )
 }

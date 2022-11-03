@@ -38,7 +38,7 @@ function CalendarCell({ currentDate, selectDate, setSelectDate }) {
 function CellRow({ item, monthEnd, selectDate, setSelectDate }) {
 
   const CellRow = styled.div`
-    flex-basis : 20%;
+    flex-basis : 100%;
     display : flex;
     justify-content : space-around;
     border-bottom : 1px solid #DFE0DF;
