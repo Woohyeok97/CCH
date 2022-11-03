@@ -13,7 +13,7 @@ function LoginWrap() {
   `
   return (
     <LoginWrap>
-      <Button size='large' color='brown'>구글 계정으로 로그인 하기</Button>
+      <Button size='large' color='brown' url="list">구글 계정으로 로그인 하기</Button>
     </LoginWrap>
   )
 }

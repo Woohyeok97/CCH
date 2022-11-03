@@ -1,16 +1,19 @@
 /* eslint-disable */
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
 
 
-function Button({ children, size, color }) {
+function Button({ children, size, color, url }) {
+
+  const navigate = useNavigate()
   const buttonSize = SIZE[size]
   const buttonColor = COLOR[color]
   
   return (
-    <StyleButton buttonSize={buttonSize} buttonColor={buttonColor}>
-      { children }
+    <StyleButton buttonSize={buttonSize} buttonColor={buttonColor} 
+    onClick={()=>{ url ? navigate(`/${url}`) : null }}>{ children }
     </StyleButton>
   )
 }

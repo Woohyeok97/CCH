@@ -1,5 +1,7 @@
 /* eslint-disable */
 import React from "react";
+
+
 import styled from "styled-components";
 import Button from "../common/button";
 
@@ -14,7 +16,7 @@ function UploadButton() {
   `
   return (
     <UploadButton>
-      <Button size='large' color='yellow'>오늘의 나 칭찬하기</Button>
+      <Button size='large' color='yellow' url="upload">오늘의 나 칭찬하기</Button>
     </UploadButton>
   )
 }
