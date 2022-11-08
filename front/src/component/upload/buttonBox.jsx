@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
 
@@ -15,8 +16,9 @@ function ButtonBox() {
       justify-content : space-around;
       width : 260px;
     }
+    `
 
-  `
+
   return (
     <ButtonBox>
       <div>

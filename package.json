@@ -11,8 +11,8 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "server":"cd back && nodemon server",
-    "client":"cd front && yarn start",
-    "start":"concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "server": "cd back && nodemon server",
+    "client": "cd front && yarn start",
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   }
 }

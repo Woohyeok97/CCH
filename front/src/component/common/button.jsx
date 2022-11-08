@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 
 
 
-function Button({ children, size, color, url }) {
+function Button({ children, size, color, url, action}) {
 
   const navigate = useNavigate()
   const buttonSize = SIZE[size]
@@ -13,6 +13,7 @@ function Button({ children, size, color, url }) {
   
   return (
     <StyleButton buttonSize={buttonSize} buttonColor={buttonColor} 
+    onClick={()=>{ action ? action() : null}}
     onClick={()=>{ url ? navigate(`/${url}`) : null }}>{ children }
     </StyleButton>
   )
