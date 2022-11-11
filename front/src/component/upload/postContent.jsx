@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 import Button from '../common/button'
 
-function ButtonBox() {
-  const ButtonBox = styled.section`
+function PostContent({ action }) {
+  const PostContent = styled.section`
     flex-basis : 20%;
     display : flex;
     justify-content : center;
@@ -20,13 +20,13 @@ function ButtonBox() {
 
 
   return (
-    <ButtonBox>
+    <PostContent>
       <div>
-        <Button size="large">취소</Button>
-        <Button size="large" color="green">칭찬!</Button>
+        <Button size="large" action={action} >취소</Button>
+        <Button size="large" color="green" action={action} >칭찬!</Button>
       </div>
-    </ButtonBox>
+    </PostContent>
   )
 }
 
-export default ButtonBox
+export default PostContent

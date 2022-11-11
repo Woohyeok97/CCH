@@ -1,18 +1,20 @@
 /* eslint-disable */
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
 
 import AppWrap from '../component/common/appWrap'
 import Header from '../component/common/header'
-import WriteBox from '../component/upload/writeBox'
-import ButtonBox from '../component/upload/buttonBox'
+import SetContentContainer from '../container/upload/setCotentContainer'
+import PostContentContainer from '../container/upload/postContentContainer'
 
 function Upload() {
+
+  const [content, setContent] = useState('')
+  
   return(
     <AppWrap background="#FEFBEA">
       <Header>오늘의 나 칭찬하기</Header>
-      <WriteBox/>
-      <ButtonBox/>
+      <SetContentContainer setContent={ setContent }/>
+      <PostContentContainer content={ content }/>
     </AppWrap>
   )
 }

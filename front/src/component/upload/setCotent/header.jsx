@@ -1,11 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import Button from '../../common/button'
 
-import Button from '../common/button'
+function Header() {
 
-function WriteHeader() {
+  return(
+    <HeaderStyled>
+      <Button size="small" color="black">사진첨부</Button>
+      <h3>2022년 12월 25일 칭찬</h3>
+    </HeaderStyled>
+  )
+}
 
-  const WriteHeader = styled.div`
+
+const HeaderStyled = styled.div`
     display : flex;
     justify-content : space-between;
     align-items : center;
@@ -21,12 +29,4 @@ function WriteHeader() {
     }
   `
 
-  return(
-    <WriteHeader>
-      <Button size="small" color="black">사진첨부</Button>
-      <h3>2022년 12월 25일 칭찬</h3>
-    </WriteHeader>
-  )
-}
-
-export default WriteHeader
+export default Header
