@@ -2,9 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Intro() {
-
-  const Intro = styled.section`
+const IntroStyled = styled.section`
     flex-basis : 40%;
     display : flex;
     justify-content : center;
@@ -17,10 +15,12 @@ function Intro() {
     }
   `
 
+function Intro() {
+
   return(
-    <Intro>
+    <IntroStyled>
       <h1>칭찬해~</h1>
-    </Intro>
+    </IntroStyled>
   )
 }
 

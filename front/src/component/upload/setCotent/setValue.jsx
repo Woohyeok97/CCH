@@ -2,18 +2,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
-function SetValue({ setContent }) {
-  
-  return(
-   <SetValueStyled>
-     <textarea placeholder="오늘의 나를 칭찬해보자!" spellcheck="false"
-     onChange={(e)=>{ setContent(e.target.value) }}/>
-   </SetValueStyled>
-  )
-}
-
-
 const SetValueStyled = styled.div`
   > textarea {
     font-size : 2.5rem;
@@ -30,5 +18,15 @@ const SetValueStyled = styled.div`
     }
   }
 `
+
+function SetValue({ setContent }) {
+  
+  return(
+   <SetValueStyled>
+     <textarea placeholder="오늘의 나를 칭찬해보자!" spellcheck="false"
+     onChange={(e)=>{ setContent(e.target.value) }}/>
+   </SetValueStyled>
+  )
+}
 
 export default SetValue;

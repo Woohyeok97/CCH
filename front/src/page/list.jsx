@@ -12,7 +12,9 @@ import UploadButton from '../component/list/uploadButton'
 function List() {
   return(
     <Appwrap background='#FEFBEA'>
+      
       <Header>칭찬모아보기</Header>
+
       <LayoutBox basis="90%">
         <LayoutBox direction="column" basis="70%">
           <Calendar/>
@@ -20,9 +22,7 @@ function List() {
         </LayoutBox>
         <Detail/>
       </LayoutBox>
-        
-        
-        
+
     </Appwrap>
   )
 }

@@ -4,17 +4,17 @@ import styled from 'styled-components'
 
 function Header({ children }) {
 
-  const Header = styled.header`
-    flex-basis : 10%;
-    display : flex;
-    justify-content : center;
-    align-items : center;
-    background-color : #FDDF3F;
-    font-size : 2rem;
-    font-weight : 800;
-  `
-
-  return <Header>{ children }</Header>
+  return <HeaderStyled>{ children }</HeaderStyled>
 }
+
+const HeaderStyled = styled.header`
+  flex-basis : 10%;
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  background-color : #FDDF3F;
+  font-size : 2rem;
+  font-weight : 800;
+`
 
 export default Header

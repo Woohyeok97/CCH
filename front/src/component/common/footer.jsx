@@ -4,7 +4,14 @@ import styled from 'styled-components'
 
 function Footer() {
 
-  const Footer = styled.footer`
+  return(
+    <FooterStyled>
+      <p>production by woo</p>
+    </FooterStyled>
+  )
+}
+
+const FooterStyled = styled.footer`
       flex-basis : 40%;
       display : flex;
       justify-content : center;
@@ -16,11 +23,5 @@ function Footer() {
       text-align : conter;
     }
   `
-  return(
-    <Footer>
-      <p>production by woo</p>
-    </Footer>
-  )
-}
 
 export default Footer

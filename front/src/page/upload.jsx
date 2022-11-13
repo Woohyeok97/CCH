@@ -9,6 +9,7 @@ import PostContentContainer from '../container/upload/postContentContainer'
 function Upload() {
 
   const [content, setContent] = useState('')
+  console.log(content)
   
   return(
     <AppWrap background="#FEFBEA">

@@ -1,17 +1,7 @@
+ /* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../../common/button'
-
-function Header() {
-
-  return(
-    <HeaderStyled>
-      <Button size="small" color="black">사진첨부</Button>
-      <h3>2022년 12월 25일 칭찬</h3>
-    </HeaderStyled>
-  )
-}
-
 
 const HeaderStyled = styled.div`
     display : flex;
@@ -28,5 +18,16 @@ const HeaderStyled = styled.div`
       margin : 0;
     }
   `
+
+function Header() {
+
+  return(
+    <HeaderStyled>
+      <Button size="small" color="black">사진첨부</Button>
+      <h3>2022년 12월 25일 칭찬</h3>
+    </HeaderStyled>
+  )
+}
+
 
 export default Header
