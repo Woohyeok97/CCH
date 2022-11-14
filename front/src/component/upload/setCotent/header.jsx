@@ -3,6 +3,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from '../../common/button'
 
+//custom hooks
+import useSetContent from '../../../hooks/upload/useSetContent'
+
 const HeaderStyled = styled.div`
     display : flex;
     justify-content : space-between;
@@ -20,6 +23,8 @@ const HeaderStyled = styled.div`
   `
 
 function Header() {
+
+  const { setImage } = useSetContent()
 
   return(
     <HeaderStyled>

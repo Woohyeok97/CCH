@@ -12,11 +12,14 @@ const uploadSlice = createSlice({
     name : 'uploadState',
     initialState,
     reducers : {
-        setState : (state, action)=> {
-
+        content : (state, action)=> {
+            state.content = action.payload
         },
+        image : (state, action)=> {
+            state.image = action.payload
+        }
     }
 })
 
 export default uploadSlice
-export const { setState } = uploadSlice.actions
+export const { content, image } = uploadSlice.actions

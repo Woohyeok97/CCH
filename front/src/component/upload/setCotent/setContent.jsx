@@ -14,12 +14,12 @@ const SetContentStyled = styled.section`
     align-items : center; 
   `
 
-function SetContent({ setContent }) {
+function SetContent() {
 
   return(
    <SetContentStyled>
     <Header/>
-    <SetValue setContent={setContent}/>
+    <SetValue/>
    </SetContentStyled>
   )
 }
