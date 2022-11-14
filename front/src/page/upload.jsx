@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import AppWrap from '../component/common/appWrap'
 import Header from '../component/common/header'
@@ -8,14 +9,13 @@ import PostContentContainer from '../container/upload/postContentContainer'
 
 function Upload() {
 
-  const [content, setContent] = useState('')
-  console.log(content)
+  const uploadContent = useSelector(state => state.upload )
   
   return(
     <AppWrap background="#FEFBEA">
       <Header>오늘의 나 칭찬하기</Header>
-      <SetContentContainer setContent={ setContent }/>
-      <PostContentContainer content={ content }/>
+      <SetContentContainer />
+      <PostContentContainer />
     </AppWrap>
   )
 }
