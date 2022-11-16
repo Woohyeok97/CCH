@@ -1,24 +1,36 @@
 /* eslint-disable */
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 export default function usePostContent() {
 
     const uploadContent = useSelector( state => state.upload )
-
-    const nullCheck = ()=> {
-        // uploadContent의 프로퍼티중 빈값이 있는지 체크
+    const navigate = useNavigate()
+    
+    // 업로드컨텐츠의 text가 비었는지 체크
+    const isUpoadContentText = ()=> {
+        return uploadContent.text ? true : false
     }
-    const todayCheck = ()=> {
-        // 사용자가 오늘 이미 포스트를 올렸는지 체크
+    // 사용자가 오늘 이미 컨텐츠 업로드를 했는지 체크
+    const isTodayupload = ()=> {
+        return true
     }
-
+    // 완성된 컨텐츠를 서버로 POST요청
     const postContent = ()=>{
-        axios.post('http://localhost:3001/post/upload')
-        .then((result)=>{ console.log(result) })
+        axios.post('http://localhost:3001/post/upload', uploadContent )
+        .then((result)=>{ console.log(result.data.message)})
         .catch((err)=>{ console.log('요청에러발생..!', err) })
     }
+    // 업로드 성공여부를 사용자한테 안내하는 함수
+    const notifyUpload = ()=> {
+        if(isUpoadContentText()) {
+            postContent()
+            alert('칭찬해~', navigate('/list'))
+        }
+        else alert('내용을 입력해주세요!')
+    }
 
-    return { postContent, nullCheck, todayCheck }
+    return { notifyUpload }
 }

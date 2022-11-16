@@ -6,7 +6,7 @@ const { Schema } = mongoose
 const { Types : { ObjectId } } = Schema;
 const postSchema = new Schema({
     userId : {
-        type : ObjectId,
+        type : String, // ObjectI로 추후에 수정!
         required : true, //required 는 null 유무
         ref : 'User', // ref에는 추후에 관계를 맺을 콜렉션명을 적음
     },
@@ -14,7 +14,7 @@ const postSchema = new Schema({
         type : Date,
         required : true,
     },
-    content : {
+    text : {
         type : String,
         required : true,
     },

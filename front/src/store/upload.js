@@ -1,19 +1,21 @@
 /* eslint-disable */
 import { createSlice } from "@reduxjs/toolkit";
+import { format } from "date-fns";
+
 
 const initialState = {
-    userId : '고나우',
-    date : new Date(),
-    content : '오늘의 나, 칭찬해~',
-    image : '사진',
+    userId : '123',
+    date : format(new Date(), 'yyyy-M-d'),
+    text : '',
+    image : 'sdf',
 }
 
 const uploadSlice = createSlice({
     name : 'uploadState',
     initialState,
     reducers : {
-        content : (state, action)=> {
-            state.content = action.payload
+        text : (state, action)=> {
+            state.text = action.payload
         },
         image : (state, action)=> {
             state.image = action.payload
@@ -22,4 +24,4 @@ const uploadSlice = createSlice({
 })
 
 export default uploadSlice
-export const { content, image } = uploadSlice.actions
+export const { text, image } = uploadSlice.actions

@@ -13,8 +13,7 @@ function Button({ children, size, color, url, action}) {
   
   return (
     <StyleButton buttonSize={buttonSize} buttonColor={buttonColor} 
-      onClick={()=>{ action ? action() : null }}
-      onClick={()=>{ url ? navigate(`/${url}`) : null }}>{ children }
+      onClick={()=>{ action ? action() : null; url ? navigate(`/${url}`) : null }}>{ children }
     </StyleButton>
   )
 }

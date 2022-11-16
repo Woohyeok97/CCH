@@ -20,13 +20,13 @@ const PostContentStyled = styled.section`
     `
 
 function PostContent() {
-  const { postContent } = usePostContent()
+  const { notifyUpload } = usePostContent()
   
   return (
     <PostContentStyled>
       <div>
-        <Button size="large">취소</Button>
-        <Button size="large" color="green" action={ postContent }>칭찬!</Button>
+        <Button size="large" >취소</Button>
+        <Button size="large" color="green" action={ notifyUpload }>칭찬!</Button>
       </div>
     </PostContentStyled>
   )
