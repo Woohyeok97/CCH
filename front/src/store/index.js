@@ -3,7 +3,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 // state 모음
-import contentsSlice from "./contents";
+import contentSlice from "./content";
 import uploadSlice from "./upload";
 
 // state를 만든후, export default로 configureStore 함수에 등록후 내보내준다.
@@ -11,7 +11,7 @@ import uploadSlice from "./upload";
 //
 export default configureStore({
     reducer : {
-        content : contentsSlice.reducer,
+        content : contentSlice.reducer,
         upload : uploadSlice.reducer,
     }
 })

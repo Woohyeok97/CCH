@@ -1,11 +1,12 @@
 /* eslint-disable */
 import { addMonths, subMonths, format} from "date-fns";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import LayoutBox from "../../common/layoutBox";
 import CalendarHeader from "./calendarHeader";
 import CalendarDay from "./calendarDay";
 import CalendarCell from "./calendarCell";
+import useGetContent from "../../../hooks/list/useGetContent";
 
 
 function Calendar() {
@@ -15,7 +16,10 @@ function Calendar() {
   const prevMonth = ()=> setCurrentDate(subMonths(currentDate, 1))
   const nextMonth = ()=> setCurrentDate(addMonths(currentDate, 1))
 
-  console.log(selectDate)
+  const { getContents } = useGetContent()
+  useEffect(()=>{
+    getContents()
+  })
 
   return (
     <LayoutBox basis="80%" direction="column" justify="start">
