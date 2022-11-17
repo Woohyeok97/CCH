@@ -12,11 +12,6 @@ router.use( express.urlencoded({ extended : true }) )
 // [ DELETE요청 ] post/delete -> 포스트 삭제하기
 
 router.get('/get', (req, res)=>{
-    Post.create({
-        name : '백우혁',
-        email : 'qordngur@gmail.com',
-        nickName : '고나우'
-    })
     res.send({ message : '요청성공' })
 })
 
