@@ -1,7 +1,10 @@
 /* eslint-disable */
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { format } from 'date-fns'
+
+//custom hooks
+import useSetCalendar from "../../../hooks/list/useSetCalendar";
 
 const CalendarHeaderStyled = styled.div`
   flex-basis : 7%;
@@ -23,13 +26,16 @@ const DateBoxStyled = styled.h1`
   }
 `
 
-function CalendarHeader({ currentDate, prevMonth, nextMonth }) {
+function CalendarHeader() {
+
+  const { currentDate, nextMonth, prevMonth, } = useSetCalendar()
+  const month = format(new Date(currentDate), 'yyyy년 MM월')
 
   return (
     <CalendarHeaderStyled justify="center">
       <DateBoxStyled>
         <span className="btn left" onClick={()=>{ prevMonth() }}>◁</span>
-        <span className="date">{format(currentDate, 'yyyy')}. {format(currentDate, 'M')}</span>
+        <span className="date">{ month }</span>
         <span className="btn right" onClick={()=>{ nextMonth() }}>▷</span>
       </DateBoxStyled>
     </CalendarHeaderStyled>

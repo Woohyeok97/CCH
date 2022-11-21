@@ -2,6 +2,9 @@
 import React from "react";
 import styled from "styled-components";
 
+//custom hooks
+import useSetCalendar from "../../../hooks/list/useSetCalendar";
+
 
 const CalendarDayStyled = styled.div`
   flex-basis : 3%;
@@ -19,11 +22,11 @@ const CalendarDayStyled = styled.div`
 
 function CalendarDay() {
 
-  const 요일 = ['SUN','MON','TUE','WED','THU','FRI','SAT']
+  const { setDays } = useSetCalendar()
 
   return (
     <CalendarDayStyled>
-      { 요일.map((a)=> <div className="day">{a}</div>) }
+    { setDays() }
     </CalendarDayStyled>
   )
 }
