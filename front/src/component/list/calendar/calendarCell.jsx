@@ -23,6 +23,9 @@ const CellRowStyled = styled.div`
       font-weight : 600;  
       padding-left : 12px;
     }
+    > .today {
+      background-color : orange;
+    }
     > .disabled {
       color : #DFE0DF;
     }
@@ -32,13 +35,6 @@ const CellRowStyled = styled.div`
       border-radius : 1.2rem;
       box-sizing: border-box;
       background-color : red;
-    }
-    > .not-selected {
-      width : 36px;
-      height : 36px;
-      display : flex;
-      justify-content : center;
-      align-items : center;
     }
   }
 `
