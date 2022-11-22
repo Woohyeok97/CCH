@@ -1,15 +1,26 @@
 /* eslint-disable */
-import { addMonths, subMonths, format} from "date-fns";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
+//components
 import LayoutBox from "../../common/layoutBox";
 import CalendarHeader from "./calendarHeader";
 import CalendarDay from "./calendarDay";
 import CalendarCell from "./calendarCell";
-import { useSelector } from "react-redux";
+
+//custom hooks
+import useGetContent from "../../../hooks/list/useGetContent";
 
 
 function Calendar() {
+  const currentDate = useSelector( state => state.currentDate)
+  const { getContent }  = useGetContent()
+
+  // currentDate가 바뀔때마다 해당월의 컨텐츠를 가져올수있게 useEffect()사용
+  useEffect(()=>{
+    getContent()
+  },[currentDate])
+
 
   return (
     <LayoutBox basis="80%" direction="column" justify="start">

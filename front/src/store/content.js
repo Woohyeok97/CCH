@@ -3,7 +3,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // initialState는 state초기값인데 직관적으로 보일수 있도록 따로 선언해줌
-const initialState = ['2']
+const initialState = ''
 
 // createSlice({ 필수속성 })메소드로 state를 만들어줌
 // 필수속성에는 name(state이름), initialState(초기값), reducerS(state변경함수) 
@@ -13,7 +13,7 @@ const contentSlice = createSlice({
     initialState,
     reducers : {
         setContentState : (state, action)=> {
-            state = action.payload
+            return state = action.payload
         },
     }
 })
