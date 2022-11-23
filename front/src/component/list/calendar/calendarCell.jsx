@@ -1,14 +1,13 @@
 /* eslint-disable */
 import React from "react";
+import format from "date-fns/format";
 import styled from "styled-components";
 import useSetCalendar from "../../../hooks/list/useSetCalendar";
-import LayoutBox from "../../common/layoutBox";
 
 const CellRowStyled = styled.div`
   flex-basis : 90%;
   display : flex;
   flex-direction : column;
-
 
   > .week {
     flex-basis : 100%;
@@ -41,28 +40,42 @@ const CellRowStyled = styled.div`
 
 function CalendarCell() {
 
-  const { viewCalendar} = useSetCalendar()
-
   return (
     <CellRowStyled>
-    { viewCalendar() }
+      <WeekCell/>
     </CellRowStyled>
   )
-
 }
 
 
+// week셀 컴포넌트
+function WeekCell() {
+  const { setMonth } = useSetCalendar()
+  const month = setMonth()
+  
+  return month.map((week, i)=>{
+    return (
+      <div className="week" key={`${week}${i}`}>
+        <DateCell week={week} />
+      </div> 
+    )
+  })
+}
 
-// function CellRow({ item, monthEnd, selectDate, setSelectDate }) {
+// date셀 컴포넌트
+function DateCell({ week }) {
+  const { selectDate, setClassName } = useSetCalendar()
 
-//   return(
-//     <CellRowStyled>
-//     { item.map((a)=>{ 
-//       return <div className={`cell-item ${isSameMonth(a, monthEnd) ? 'cell-item' : 'disabled' }`} onClick={()=>{ setSelectDate(a) }}>
-//       <div className={`not-selected ${isSameDay(a, selectDate) ? 'selected' : 'not-selected'}`}>{format(a, 'd')}</div></div>
-//     }) }
-//     </CellRowStyled>
-//   )
-// }
+  return week.map((date, i)=>{
+    return (
+      <div className={`cell-item ${ setClassName(date) }`} key={`${date}${i}`}
+        onClick={()=>{ selectDate(date)} }>
+        { format(date, 'dd') }
+      </div>
+    )
+  })
+}
+
+
 
 export default CalendarCell

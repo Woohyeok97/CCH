@@ -8,6 +8,7 @@ import { addDays, endOfMonth, endOfWeek, startOfMonth, startOfWeek, isSameMonth,
 import { setNextMonth, setPrevMonth } from "../../store/currentDate";
 import { setSeletedDate } from "../../store/selectedDate";
 
+
 export default function useSetCalendar() {
     const currentDate = useSelector( state => state.currentDate ) 
     const selectedDate = useSelector( state => state.selectedDate )
@@ -17,19 +18,20 @@ export default function useSetCalendar() {
     const nextMonth = ()=> distpatch(setNextMonth(currentDate))
     const prevMonth = ()=> distpatch(setPrevMonth(currentDate))
 
+
     // Days셀 컴포넌트 생성함수
     const weekArray = ['SUN','MON','TUE','WED','THU','FRI','SAT']
     const setDays = ()=>{
         return weekArray.map((item, i) => <div key={`${item}${i}`} className="day">{ item }</div>)
     }
 
-    // date셀 컴포넌트 생성함수
+
+    // date셀을 위한 만들기 위헤 해당월 Array생성
     const monthStartDate = startOfMonth(new Date(currentDate)) // 이번달 시작일
     const monthEndDate = endOfMonth(new Date(currentDate)) // 이번달 마지막일
     const startDate = startOfWeek(monthStartDate) // 이번달 시작주 시작일
     const endDate = endOfWeek(monthEndDate) // 이번달 마지막주 마지막일
 
-    // date셀을 위한 만들기 위헤 해당월 Array생성
     let date = startDate
     let week = []
     let month = []
@@ -43,31 +45,25 @@ export default function useSetCalendar() {
             month = [...month, week]
             week = []
         }
+        return month
+    }
+
+    //date셀한테 className을 부여해주는 함수(해당월의 날짜, selected)
+    const setClassName = (date)=>{
+        let answer = 
+        isSameMonth(date, new Date(currentDate)) 
+        ? isSameDay(date, new Date(selectedDate)) 
+            ? 'selected' 
+            : isSameDay(date, new Date()) ? 'today' : ''
+        : 'disabled';
+        return answer
+    }
+
+    // selectedDate를 변경해주는 함수
+    const selectDate = (date)=> {
+        distpatch(setSeletedDate(format(date, 'yyyy-MM-dd')))
     }
 
 
-    // date셀을 이용해 달력을 생성하는 함수
-    const viewCalendar = ()=> {
-        setMonth()
-        return month.map((item, i)=> <div key={`${item}${i}`} className="week">{ setDateCell(item) }</div>)
-    }
-    // date셀 생성함수
-    // className부여 & 날짜선택시 표시 및 currentDate변경
-    const setDateCell = (item)=> {
-        return item.map((date, i)=> {
-            return (
-                <div key={`${item}${i}`} className={`cell-item 
-                ${isSameMonth(date, new Date(currentDate)) ? '' : 'disabled'}
-                ${isSameDay(date, new Date(selectedDate)) ? 'selected' : '' }
-                ${isSameDay(date, new Date()) ? 'today' : '' }`}
-                onClick={()=>{ distpatch(setSeletedDate(format(date, 'yyyy-MM-dd'))) }}>
-                { format(date, 'd') }
-                </div>
-            )
-        })
-    }
-
-
-
-    return { currentDate, nextMonth, prevMonth, setDays, viewCalendar,}
+    return { currentDate, nextMonth, prevMonth, setDays, setMonth, selectDate, setClassName, }
 }
