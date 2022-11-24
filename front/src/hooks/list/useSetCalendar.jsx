@@ -50,13 +50,11 @@ export default function useSetCalendar() {
 
     //date셀한테 className을 부여해주는 함수(해당월의 날짜, selected)
     const setClassName = (date)=>{
-        let answer = 
-        isSameMonth(date, new Date(currentDate)) 
-        ? isSameDay(date, new Date(selectedDate)) 
-            ? 'selected' 
-            : isSameDay(date, new Date()) ? 'today' : ''
-        : 'disabled';
-        return answer
+        let className = `cell-item `
+        isSameMonth(date, new Date(currentDate)) ? null : className += ' disabled'
+        isSameDay(date, new Date(selectedDate)) ? className += ' selected' : null
+        isSameDay(date, new Date()) ? className += ' today' : null
+        return className
     }
 
     // selectedDate를 변경해주는 함수

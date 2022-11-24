@@ -68,7 +68,7 @@ function DateCell({ week }) {
 
   return week.map((date, i)=>{
     return (
-      <div className={`cell-item ${ setClassName(date) }`} key={`${date}${i}`}
+      <div className={`${setClassName(date)}`} key={`${date}${i}`}
         onClick={()=>{ selectDate(date)} }>
         { format(date, 'dd') }
       </div>
