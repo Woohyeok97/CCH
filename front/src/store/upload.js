@@ -5,7 +5,7 @@ import { format } from "date-fns";
 
 const initialState = {
     userId : '123',
-    date : format(new Date(), 'yyyy-M-d'),
+    date : format(new Date(), 'yyyy-MM-dd'),
     text : '',
     image : 'sdf',
 }

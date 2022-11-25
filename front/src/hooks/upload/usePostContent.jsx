@@ -19,7 +19,7 @@ export default function usePostContent() {
     }
     // 완성된 컨텐츠를 서버로 POST요청
     const postContent = ()=>{
-        axios.post('http://localhost:3001/post/upload', uploadContent )
+        axios.post('http://localhost:3001/content/upload', uploadContent )
         .then((result)=>{ console.log(result.data.message)})
         .catch((err)=>{ console.log('요청에러발생..!', err) })
     }

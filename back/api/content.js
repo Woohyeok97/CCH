@@ -12,7 +12,12 @@ router.use( express.urlencoded({ extended : true }) )
 // [ DELETE요청 ] post/delete -> 포스트 삭제하기
 
 router.get('/get', (req, res)=>{
-    res.send({ message : '요청성공' })
+    Post.find({ date : {$gte: new Date(req.query.startDate), $lte: req.query.endDate} },
+    (에러, 결과)=>{
+        if(!결과) return res.send({ message : '에러발생!', err : 에러 })
+        res.send(결과)
+    })
+
 })
 
 router.post('/upload', (req, res)=>{

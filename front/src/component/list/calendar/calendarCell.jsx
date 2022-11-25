@@ -35,6 +35,9 @@ const CellRowStyled = styled.div`
       box-sizing: border-box;
       background-color : red;
     }
+    > .content {
+      background-color : yellow;
+    }
   }
 `
 
@@ -64,13 +67,14 @@ function WeekCell() {
 
 // date셀 컴포넌트
 function DateCell({ week }) {
-  const { selectDate, setClassName } = useSetCalendar()
-
-  return week.map((date, i)=>{
+  const { selectDate, setClassName, } = useSetCalendar()
+  
+  return week.map((item, i)=>{
+    
     return (
-      <div className={`${setClassName(date)}`} key={`${date}${i}`}
-        onClick={()=>{ selectDate(date)} }>
-        { format(date, 'dd') }
+      <div className={`${setClassName(item)}`} key={`${item.date}${i}`}
+        onClick={()=>{ selectDate(item)} }>
+        { format(item.date, 'dd') }
       </div>
     )
   })
