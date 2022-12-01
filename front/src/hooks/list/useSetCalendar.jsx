@@ -2,22 +2,20 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 // date-fns Library
-import { addDays, endOfMonth, endOfWeek, startOfMonth, startOfWeek, isSameMonth, format, isSameDay, } from "date-fns";
+import { addDays, endOfMonth, endOfWeek, startOfMonth, startOfWeek, isSameMonth, isSameDay, } from "date-fns";
 
 //reducers
-import { setNextMonth, setPrevMonth } from "../../store/currentDate";
-import { setSeletedDate } from "../../store/selectedDate";
+import { setNextMonth, setPrevMonth } from "../../store/currentMonth";
 
 
 export default function useSetCalendar() {
-    const currentDate = useSelector( state => state.currentDate ) 
-    const content = useSelector( state => state.content )
-    const selectedDate = useSelector( state => state.selectedDate )
+    const currentMonth = useSelector( state => state.currentMonth ) 
+    const content = useSelector( state => state.content ) 
     const distpatch = useDispatch();
   
     // Month 변경함수
-    const nextMonth = ()=> distpatch(setNextMonth(currentDate))
-    const prevMonth = ()=> distpatch(setPrevMonth(currentDate))
+    const nextMonth = ()=> distpatch(setNextMonth(currentMonth))
+    const prevMonth = ()=> distpatch(setPrevMonth(currentMonth))
 
 
     // Days셀 컴포넌트 생성함수
@@ -28,8 +26,8 @@ export default function useSetCalendar() {
 
 
     // date셀을 위한 만들기 위헤 해당월 Array생성
-    const monthStartDate = startOfMonth(new Date(currentDate)) // 이번달 시작일
-    const monthEndDate = endOfMonth(new Date(currentDate)) // 이번달 마지막일
+    const monthStartDate = startOfMonth(new Date(currentMonth)) // 이번달 시작일
+    const monthEndDate = endOfMonth(new Date(currentMonth)) // 이번달 마지막일
     const startDate = startOfWeek(monthStartDate) // 이번달 시작주 시작일
     const endDate = endOfWeek(monthEndDate) // 이번달 마지막주 마지막일
 
@@ -63,30 +61,17 @@ export default function useSetCalendar() {
         }
         return month
     }
+    // setMonth()
+    // console.log(month)
 
     //date셀한테 className을 부여해주는 함수(해당월의 날짜, selected)
     const setClassName = (item)=>{
         let className = `cell-item `
         item.content ? className += ' content' : null
-        isSameMonth(item.date, new Date(currentDate)) ? null : className += ' disabled'
-        isSameDay(item.date, new Date(selectedDate)) ? className += ' selected' : null
+        isSameMonth(item.date, new Date(currentMonth)) ? null : className += ' disabled'
         isSameDay(item.date, new Date()) ? className += ' today' : null
         return className
     }
 
-    // selectedDate를 변경해주는 함수
-    const selectDate = (date)=> {
-        distpatch(setSeletedDate(format(date.date, 'yyyy-MM-dd')))
-    }
-
-
-    return { 
-            currentDate,
-            nextMonth, 
-            prevMonth, 
-            setDays, 
-            setMonth, 
-            selectDate, 
-            setClassName, 
-        }
+    return { currentMonth, nextMonth, prevMonth, setDays, setMonth, setClassName, }
 }

@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
+import useSetDetail from '../../../hooks/list/useSetDetail'
 
 const ContentImageStyled = styled.div`
   padding-bottom : 24px;
@@ -15,10 +16,11 @@ const ContentImageStyled = styled.div`
 `
 
 function ContentImage() {
+  const { currentContent } = useSetDetail()
 
   return (
     <ContentImageStyled>
-      <img src='/초밥사진.jpeg'/>
+    { currentContent.image }
     </ContentImageStyled>
   )
 }

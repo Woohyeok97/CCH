@@ -3,6 +3,8 @@ import React from "react";
 import format from "date-fns/format";
 import styled from "styled-components";
 import useSetCalendar from "../../../hooks/list/useSetCalendar";
+import useGetContent from "../../../hooks/list/useGetContent";
+import useSetDetail from "../../../hooks/list/useSetDetail";
 
 const CellRowStyled = styled.div`
   flex-basis : 90%;
@@ -67,13 +69,15 @@ function WeekCell() {
 
 // date셀 컴포넌트
 function DateCell({ week }) {
-  const { selectDate, setClassName, } = useSetCalendar()
-  
+  const { setClassName, } = useSetCalendar()
+  const { getSelectContent } = useGetContent()
+  const { changeCurrentContent } = useSetDetail()
+
   return week.map((item, i)=>{
     
     return (
       <div className={`${setClassName(item)}`} key={`${item.date}${i}`}
-        onClick={()=>{ selectDate(item)} }>
+        onClick={()=>{ changeCurrentContent(item.content), getSelectContent(item.content) }}>
         { format(item.date, 'dd') }
       </div>
     )

@@ -1,6 +1,8 @@
 /* eslint-disable */
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import useSetDetail from '../../../hooks/list/useSetDetail'
 
 
 const DetailHeaderStyled = styled.div`
@@ -22,10 +24,11 @@ const DetailHeaderStyled = styled.div`
 `
 
 function DetailHeader() {
-
+  const { currentContent } = useSetDetail()
+  
   return (
     <DetailHeaderStyled>
-      <h1>12월 25일의 나 칭찬해~</h1>
+      <h1>{ currentContent.date }</h1>
       <span>•••</span>
     </DetailHeaderStyled>
   )

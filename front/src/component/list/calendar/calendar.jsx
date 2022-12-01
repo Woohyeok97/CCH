@@ -13,13 +13,13 @@ import useGetContent from "../../../hooks/list/useGetContent";
 
 
 function Calendar() {
-  const currentDate = useSelector( state => state.currentDate)
+  const currentMonth = useSelector( state => state.currentMonth)
   const { getContent }  = useGetContent()
 
   // currentDate가 바뀔때마다 해당월의 컨텐츠를 가져올수있게 useEffect()사용
   useEffect(()=>{
     getContent()
-  },[currentDate])
+  },[currentMonth])
 
 
   return (

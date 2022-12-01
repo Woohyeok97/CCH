@@ -10,6 +10,7 @@ const initialState = {
     image : 'sdf',
 }
 
+
 const uploadSlice = createSlice({
     name : 'uploadState',
     initialState,

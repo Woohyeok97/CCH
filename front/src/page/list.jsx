@@ -17,7 +17,7 @@ function List() {
       <Header>칭찬모아보기</Header>
 
       <LayoutBox basis="90%">
-        <LayoutBox direction="column" basis="70%">
+        <LayoutBox direction="column" basis="90%">
           <Calendar/>
           <UploadButton/>
         </LayoutBox>

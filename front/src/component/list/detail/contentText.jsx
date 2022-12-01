@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
+import useSetDetail from '../../../hooks/list/useSetDetail'
 
 
 const ContentTextStyled = styled.div`
@@ -11,11 +12,13 @@ const ContentTextStyled = styled.div`
   font-weignt : 900;
 `
 
-function ContentText({ value }) {
+function ContentText() {
+
+  const { currentContent } = useSetDetail()
 
   return (
     <ContentTextStyled>
-     { value }
+     { currentContent.text }
     </ContentTextStyled>
   )
 }

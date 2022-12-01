@@ -7,8 +7,8 @@ import { format, addMonths, subMonths } from "date-fns";
 
 const initialState = format(new Date, 'yyyy-MM')
 
-const currentDateSlice = createSlice({
-    name : 'currentDateState',
+const currentMonthSlice = createSlice({
+    name : 'currentMonthState',
     initialState,
     reducers : {
         setNextMonth : (state, action)=>{
@@ -20,6 +20,6 @@ const currentDateSlice = createSlice({
     }
 })
 
-export default currentDateSlice
-export const { setNextMonth, setPrevMonth, } = currentDateSlice.actions
+export default currentMonthSlice
+export const { setNextMonth, setPrevMonth, } = currentMonthSlice.actions
 

@@ -11,15 +11,14 @@ import { setContentState  } from "../../store/content";
 
 export default function useGetContent() {
     const content = useSelector( state => state.content)
-    const currentDate = useSelector( state => state.currentDate )
-    const selectedDate = useSelector( state => state.selectedDate )
+    const currentMonth = useSelector( state => state.currentMonth )
     const dispatch = useDispatch()
     
     // 서버에서 content를 받아오는 코드
     // 컨텐츠를 가져올 날짜범위를 담고있는 scopeOfDate객체
     const scopeOfDate = {
-        startDate : startOfWeek(new Date(currentDate)), //해당월 첫째주의 첫날
-        endDate : endOfWeek(endOfMonth(new Date(currentDate))) // 해당월 마지막주의 마지막날
+        startDate : startOfWeek(new Date(currentMonth)), //해당월 첫째주의 첫날
+        endDate : endOfWeek(endOfMonth(new Date(currentMonth))) // 해당월 마지막주의 마지막날
     }
     // 서버한테 날짜범위를 주고 데이터를 받아와 content state에 저장해주는 함수
     const getContent = ()=>{
@@ -28,10 +27,10 @@ export default function useGetContent() {
         .catch((err)=>{ console.log('요청에러 발생...', err) })
     }
 
-
     // 사용자가 선택한 컨텐츠를 찾아주는 함수
-    const getSelectContent = ()=> {
-        
+    const getSelectContent = (item)=> {
+        if(item) console.log('컨텐츠 출력성공!', item)
+        else console.log('컨텐츠 없잖슴~~')
     }
     return { getContent, getSelectContent }
 }

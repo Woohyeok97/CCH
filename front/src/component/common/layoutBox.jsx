@@ -13,7 +13,7 @@ function LayoutBox({ children, basis, direction, justify, align }) {
 
 const LayoutBoxStyled = styled.section`
     display : flex;
-    flex-basis : ${(props)=> props.basis };
+    flex-basis : ${(props)=> props.basis || '100%' };
     flex-direction : ${(props)=> props.direction || 'row' };
     justify-content : ${(props)=> props.justify || 'center' };
     align-items :${(props)=> props.align };

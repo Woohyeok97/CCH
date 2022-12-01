@@ -28,8 +28,8 @@ const DateBoxStyled = styled.h1`
 
 function CalendarHeader() {
 
-  const { currentDate, nextMonth, prevMonth, } = useSetCalendar()
-  const month = format(new Date(currentDate), 'yyyy년 MM월')
+  const { currentMonth, nextMonth, prevMonth, } = useSetCalendar()
+  const month = format(new Date(currentMonth), 'yyyy년 MM월')
 
   return (
     <CalendarHeaderStyled justify="center">
