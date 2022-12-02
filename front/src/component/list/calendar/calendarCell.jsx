@@ -16,29 +16,48 @@ const CellRowStyled = styled.div`
     display : flex;
     justify-content : space-around;
     border-bottom : 1px solid #DFE0DF;
-    padding-top : 12px;
+    padding-top : 6px;
 
     > .cell-item {
       width : 14.25%;
+      display : flex;
+      align-items : start;
+      padding-left : 12px;
       font-size : 1rem;
       font-weight : 600;  
-      padding-left : 12px;
+
+      > span {
+        width : 36px;
+        height : 36px;
+        display : flex;
+        justify-content : center;
+        align-items : center;
+      }
     }
     > .today {
-      background-color : orange;
+      > span {
+        color : white;
+        background-color : red;
+        border : 1px solid transparent;
+        border-radius : 1.2rem;
+        box-sizing: border-box;
+      }
     }
     > .disabled {
       color : #DFE0DF;
     }
-    > .selected {
-      color : white;
-      border : 1px solid transparent;
-      border-radius : 1.2rem;
-      box-sizing: border-box;
-      background-color : red;
-    }
     > .content {
-      background-color : yellow;
+      > span {
+        color : white;
+        background-color : orange;
+        border : 1px solid transparent;
+        border-radius : 1.2rem;
+        box-sizing: border-box;
+      }
+    }
+    > .content::after {
+      color : red;
+      content : '칭찬!'
     }
   }
 `
@@ -78,7 +97,7 @@ function DateCell({ week }) {
     return (
       <div className={`${setClassName(item)}`} key={`${item.date}${i}`}
         onClick={()=>{ changeCurrentContent(item.content), getSelectContent(item.content) }}>
-        { format(item.date, 'dd') }
+        <span>{ format(item.date, 'dd') }</span>
       </div>
     )
   })

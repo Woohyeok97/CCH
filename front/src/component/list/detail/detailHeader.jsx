@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React from 'react'
-import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import useSetDetail from '../../../hooks/list/useSetDetail'
 
