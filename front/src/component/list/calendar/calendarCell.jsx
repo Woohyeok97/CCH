@@ -56,7 +56,6 @@ const CellRowStyled = styled.div`
       }
     }
     > .content::after {
-      color : red;
       content : '칭찬!'
     }
   }

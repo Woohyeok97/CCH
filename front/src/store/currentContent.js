@@ -9,13 +9,13 @@ const initialState = {
     text: '',
     userId: ''
 }
-
+// 현재 선택한 content 데이터를 담고있는 currentContent state 
 const currentContentSlice = createSlice({
     name : 'currentContentState',
     initialState,
     reducers : {
         setCurrentContent : (state, action)=>{
-            if(!action.payload) return state = initialState
+            if(!action.payload) return state = initialState 
             return state = action.payload
         }
     }
