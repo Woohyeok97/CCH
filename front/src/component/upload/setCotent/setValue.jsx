@@ -6,10 +6,13 @@ import styled from 'styled-components'
 import useSetContent from '../../../hooks/upload/useSetContent'
 
 const SetValueStyled = styled.div`
+  width : 80%;
+  height : 100%;
+  padding-top : 36px;
+  
   > textarea {
     font-size : 2.5rem;
-    padding-top : 36px;
-    width : 80%;
+    width : 100%;
     height : 100%;
     background-color : #FFF9E8;
     border : none;

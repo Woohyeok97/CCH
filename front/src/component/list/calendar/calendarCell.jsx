@@ -26,7 +26,7 @@ const CellRowStyled = styled.div`
       font-size : 1rem;
       font-weight : 600;  
 
-      > span {
+      > .show-content {
         width : 36px;
         height : 36px;
         display : flex;
@@ -35,27 +35,34 @@ const CellRowStyled = styled.div`
       }
     }
     > .today {
-      > span {
-        color : white;
-        background-color : red;
-        border : 1px solid transparent;
-        border-radius : 1.2rem;
-        box-sizing: border-box;
+      position : relative;
+      > .show-today::after {
+        content : 'Today';
+        position : absolute;
+        bottom : 6px;
+        right : 6px;
+        color : hotpink;
+        font-size : 1.25rem;
+        font-weight : 800;
       }
-    }
+    } 
     > .disabled {
       color : #DFE0DF;
     }
     > .content {
-      > span {
+      > .show-content {
         color : white;
         background-color : orange;
         border : 1px solid transparent;
         border-radius : 1.2rem;
         box-sizing: border-box;
       }
+      > .show-content::after {
+        
+      }
     }
     > .content::after {
+      color : green;
       content : '칭찬!'
     }
   }
@@ -96,7 +103,8 @@ function DateCell({ week }) {
     return (
       <div className={`${setClassName(item)}`} key={`${item.date}${i}`}
         onClick={()=>{ changeCurrentContent(item.content), getSelectContent(item.content) }}>
-        <span>{ format(item.date, 'dd') }</span>
+        <span className="show-content">{ format(item.date, 'dd') }</span>
+        <span className="show-today"></span>
       </div>
     )
   })
