@@ -2,6 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import useSetDetail from '../../../hooks/list/useSetDetail'
+import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
 
 
 const DetailHeaderStyled = styled.div`
@@ -28,7 +29,7 @@ function DetailHeader() {
   return (
     <DetailHeaderStyled>
       <h1>{ currentContent.date }</h1>
-      <span>•••</span>
+      <FormatAlignJustifyIcon/>
     </DetailHeaderStyled>
   )
 }

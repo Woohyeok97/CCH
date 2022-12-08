@@ -34,6 +34,7 @@ const CellRowStyled = styled.div`
         align-items : center;
       }
     }
+    
     > .today {
       position : relative;
       > .show-today::after {
