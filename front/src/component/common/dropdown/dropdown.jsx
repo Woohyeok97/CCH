@@ -1,7 +1,10 @@
 /* eslint-disable */
 import React from "react";
 import styled from 'styled-components'
+// Material
 import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
+// custom hooks
+import useEditContent from "../../../hooks/list/useEditContent";
 
 const DropdownStyled = styled.div`
     display : flex;
@@ -17,7 +20,7 @@ const DropdownStyled = styled.div`
         align-items : center;
         width : 120px;
         position : absolute;
-        top : 46px;
+        top : 36px;
         right : 0;
         background-color : #FEFBEA;
         font-size : 1.5rem;
@@ -30,8 +33,10 @@ const DropdownStyled = styled.div`
         }
 
         > .edit {  }
+        > .edit:hover { color : #666666; }
 
-        > .delete {  }
+        > .delete { color : #FF424B; }
+        > .delete:hover { color : #FF7771; }
 
         > span {
             background-color : #000000;
@@ -45,6 +50,8 @@ const DropdownStyled = styled.div`
 `
 
 function Dropdown() {
+    const { isDeleteContent } = useEditContent()
+
     return (
     <DropdownStyled>
         <input id="dropdown" type="checkbox"/>
@@ -55,7 +62,7 @@ function Dropdown() {
         <div className="btn-box">
             <div className="edit">수정</div>
             <span></span>
-            <div className="delete">삭제</div>
+            <div className="delete" onClick={()=>{ isDeleteContent() }}>삭제</div>
         </div>
     </DropdownStyled>
     )

@@ -37,7 +37,10 @@ router.put('/edit'), (req, res)=>{
 }
 
 router.delete('/delete', (req, res)=>{
-
+    Post.deleteOne({ _id : req.body._id }, (에러, 결과)=>{
+        if(!결과) return res.send({ message : 'delete요청실패..', err : 에러 })
+        res.send({ 결과 : 결과, message : '삭제성공! 다음에 또 칭찬해~' })
+    })
 })
 
 module.exports = router

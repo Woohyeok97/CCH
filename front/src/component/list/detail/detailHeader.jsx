@@ -12,7 +12,6 @@ const DetailHeaderStyled = styled.div`
   flex-basis : 10%;
   justify-content : space-between;
   align-items : center;
-  padding-bottom : 24px;
   border-bottom : 2px solid #DFE0DF;
 
   > h1 {
@@ -33,7 +32,7 @@ function DetailHeader() {
   return (
     <DetailHeaderStyled>
       <h1>{ currentContent.date }</h1>
-      <Dropdown/>
+      { currentContent._id ? <Dropdown/> : null }
     </DetailHeaderStyled>
   )
 }
