@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import DetailHeader from './detailHeader'
 import ContentImage from './contentImage'
 import ContentText from './contentText'
+import useSetDetail from '../../../hooks/list/useSetDetail'
 
 
 const DetailStyled = styled.div`
@@ -18,17 +19,13 @@ const DetailStyled = styled.div`
 
 
 function Detail() {
-  const [isImage, setIsImage] = useState(true)
-
-  const text = `다이어트중에 
-
-  초밥한판 다쳐먹은 나 칭찬해~`
+  const { currentContent } = useSetDetail()
 
   return(
     <DetailStyled>
       <DetailHeader/>
-        { isImage ? <ContentImage/> : null }  
-        <ContentText value={text}/>
+      { currentContent.image ? <ContentImage/> : null } 
+      <ContentText/>
     </DetailStyled>
   )
 }

@@ -2,7 +2,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import useSetDetail from '../../../hooks/list/useSetDetail'
-import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
+
+//components
+import Dropdown from '../../common/dropdown/dropdown';
 
 
 const DetailHeaderStyled = styled.div`
@@ -10,6 +12,8 @@ const DetailHeaderStyled = styled.div`
   flex-basis : 10%;
   justify-content : space-between;
   align-items : center;
+  padding-bottom : 24px;
+  border-bottom : 2px solid #DFE0DF;
 
   > h1 {
     color : gray;
@@ -29,7 +33,7 @@ function DetailHeader() {
   return (
     <DetailHeaderStyled>
       <h1>{ currentContent.date }</h1>
-      <FormatAlignJustifyIcon/>
+      <Dropdown/>
     </DetailHeaderStyled>
   )
 }
