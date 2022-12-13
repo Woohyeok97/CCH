@@ -1,9 +1,10 @@
 /* eslint-disable */
-import React from "react";
+import React, { useEffect } from "react";
 import format from "date-fns/format";
 import styled from "styled-components";
+
+// custom hooks
 import useSetCalendar from "../../../hooks/list/useSetCalendar";
-import useGetContent from "../../../hooks/list/useGetContent";
 import useSetDetail from "../../../hooks/list/useSetDetail";
 
 const CellRowStyled = styled.div`
@@ -93,17 +94,22 @@ function WeekCell() {
   })
 }
 
+
 // date셀 컴포넌트
 function DateCell({ week }) {
-  const { setClassName, } = useSetCalendar()
-  const { getSelectContent } = useGetContent()
-  const { changeCurrentContent } = useSetDetail()
+  const { setClassName } = useSetCalendar()
+  const { changeCurrentContent, currentContent } = useSetDetail()
+
+  // useEffect(()=>{
+  //   if(!currentContent._id) console.log('컨텐츠 없잖슴~~~')
+  //   else console.log('currendContent!!', currentContent)
+  // },[currentContent])
 
   return week.map((item, i)=>{
     
     return (
       <div className={`${setClassName(item)}`} key={`${item.date}${i}`}
-        onClick={()=>{ changeCurrentContent(item.content), getSelectContent(item.content) }}>
+        onClick={()=>{ changeCurrentContent(item.content) }}>
         <span className="show-content">{ format(item.date, 'dd') }</span>
         <span className="show-today"></span>
       </div>

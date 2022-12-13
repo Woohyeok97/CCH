@@ -9,8 +9,8 @@ import { startOfWeek, endOfWeek, endOfMonth } from "date-fns";
 //reducers
 import { setContentState  } from "../../store/content";
 
+
 export default function useGetContent() {
-    const content = useSelector( state => state.content)
     const currentMonth = useSelector( state => state.currentMonth )
     const dispatch = useDispatch()
     
@@ -27,10 +27,6 @@ export default function useGetContent() {
         .catch((err)=>{ console.log('요청에러 발생...', err) })
     }
 
-    // 사용자가 선택한 컨텐츠를 찾아주는 함수
-    const getSelectContent = (item)=> {
-        if(item) console.log('컨텐츠 출력성공!', item)
-        else console.log('컨텐츠 없잖슴~~')
-    }
-    return { getContent, getSelectContent }
+    
+    return { getContent }
 }

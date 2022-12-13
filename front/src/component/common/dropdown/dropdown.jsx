@@ -4,7 +4,9 @@ import styled from 'styled-components'
 // Material
 import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
 // custom hooks
-import useEditContent from "../../../hooks/list/useEditContent";
+import useDeleteContent from "../../../hooks/list/useDeleteContent";
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 const DropdownStyled = styled.div`
     display : flex;
@@ -50,7 +52,11 @@ const DropdownStyled = styled.div`
 `
 
 function Dropdown() {
-    const { isDeleteContent } = useEditContent()
+    const navigate = useNavigate()
+    const currentContent = useSelector( state => state.currentContent )
+    const { isDeleteContent } = useDeleteContent()
+
+    console.log(currentContent)
 
     return (
     <DropdownStyled>
@@ -60,7 +66,7 @@ function Dropdown() {
         </label>
 
         <div className="btn-box">
-            <div className="edit">수정</div>
+            <div className="edit" onClick={()=>{ navigate(`/edit/${currentContent._id}`) }}>수정</div>
             <span></span>
             <div className="delete" onClick={()=>{ isDeleteContent() }}>삭제</div>
         </div>

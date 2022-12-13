@@ -18,8 +18,8 @@ function SetContent() {
 
   return(
    <SetContentStyled>
-    <Header/>
-    <SetValue/>
+      <Header/>
+      <SetValue/>
    </SetContentStyled>
   )
 }

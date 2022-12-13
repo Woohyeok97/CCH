@@ -1,6 +1,5 @@
 /* eslint-disable */
 import { createSlice } from "@reduxjs/toolkit";
-import { format } from "date-fns";
 
 const initialState = {
     _id: '',

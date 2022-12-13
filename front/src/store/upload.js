@@ -7,7 +7,7 @@ const initialState = {
     userId : '123',
     date : format(new Date(), 'yyyy-MM-dd'),
     text : '',
-    image : 'sdf',
+    image : '',
 }
 
 

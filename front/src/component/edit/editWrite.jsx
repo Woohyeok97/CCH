@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 //custom hooks
-import useSetContent from '../../../hooks/upload/useSetContent'
 
 const SetValueStyled = styled.div`
   width : 80%;
@@ -25,15 +25,15 @@ const SetValueStyled = styled.div`
   }
 `
 
-function SetValue() {
-  const { setText } = useSetContent()
+function EditWrite() {
+    const currentContent = useSelector( state => state.currentContent )
 
-  return(
-   <SetValueStyled>
-     <textarea placeholder="오늘의 나를 칭찬해보자!" spellCheck="false"
-     onChange={(e)=>{ setText(e) }}/>
-   </SetValueStyled>
-  )
+    return(
+        <SetValueStyled>
+            <textarea placeholder="오늘의 나를 칭찬해보자!" spellCheck="false" defaultValue={ currentContent.text }
+            />
+        </SetValueStyled>
+    )
 }
 
-export default SetValue;
+export default EditWrite;
