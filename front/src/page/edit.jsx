@@ -8,6 +8,7 @@ import Header from "../component/common/header";
 import LayoutBox from "../component/common/layoutBox";
 import EditHeader from "../component/edit/editHeader";
 import EditWrite from "../component/edit/editWrite";
+import EditButton from "../component/edit/editButton";
 
 function Edit() {
 
@@ -24,6 +25,7 @@ function Edit() {
             <LayoutBox basis='70%' direction='column' align='center'>
                 <EditHeader/>
                 <EditWrite/>
+                <EditButton/>
             </LayoutBox>
         </AppWrap>
     )
