@@ -28,12 +28,11 @@ const SetValueStyled = styled.div`
 
 function EditWrite() {
     const currentContent = useSelector( state => state.currentContent )
-    const { payloadContent, setPayloadContent } = useEditContent()
 
     return(
         <SetValueStyled>
             <textarea placeholder="오늘의 나를 칭찬해보자!" spellCheck="false" defaultValue={ currentContent.text }
-            onChange={(e)=>{ setPayloadContent({...payloadContent, text : e.target.value}) }}/>
+            name="text" />
         </SetValueStyled>
     )
 }

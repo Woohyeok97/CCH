@@ -5,14 +5,17 @@ import { useSelector } from "react-redux";
 
 export default function useEditContent() {
     const currentContent = useSelector( state => state.currentContent )
-    const [payloadContent, setPayloadContent] = useState({...currentContent})
-    console.log(payloadContent)
+    
+    const changeModifiedContnet = ()=> {
+        const { name , value } = e.target
+        setModifiedContent({ ...modifiedContent, [name] : value  })
+    }
+    
 
-
-// 해당 currendContent의 내용수정시, MongoDB에 put요청을 해주는 함수
+    // 해당 currendContent의 내용수정시, MongoDB에 put요청을 해주는 함수
     const editContent = ()=> {
-        axios.put('http://localhost:3001/content/edit', payloadContent)
-        .then((result)=>{ console.log(result) })
+        axios.put('http://localhost:3001/content/edit', modifiedContent )
+        .then((result)=>{ console.log(modifiedContent) })
         .catch((err)=>{ console.log('컨텐츠 PUT요청 실패...', err) })
     }
 
@@ -23,5 +26,5 @@ export default function useEditContent() {
         : null
     }
 
-    return { isEditContent, payloadContent, setPayloadContent }
+    return { isEditContent, changeModifiedContnet }
 }
