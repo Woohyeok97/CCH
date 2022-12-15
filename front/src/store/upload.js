@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { format } from "date-fns";
 import { useSelector } from "react-redux";
 
+// useSeletor는 여기서 바로 호출이 안되는것 같은데...? 오류가 생기네
 const currentContent = useSelector( state => state.currentContent )
 
 // DB에 전송할 Content data를 담을 state 
