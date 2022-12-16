@@ -28,7 +28,7 @@ function EditButton() {
         <PostContentStyled>
             <div>
                 <Button size="large" action={ cancel }>취소</Button>
-                <Button size="large" color="green" >수정</Button>
+                <Button size="large" color="green" action={ isEditContent }>수정</Button>
             </div>
         </PostContentStyled>
     )

@@ -13,12 +13,15 @@ const currentContentSlice = createSlice({
     name : 'currentContentState',
     initialState,
     reducers : {
-        setCurrentContent : (state, action)=>{
+        setCurrentContent : (state, action) => {
             if(!action.payload) return state = initialState 
             return state = action.payload
+        },
+        editCurrentContent : (state, action) => {
+            state[action.payload.name] = action.payload.value
         }
     }
 })
 
 export default currentContentSlice
-export const { setCurrentContent } = currentContentSlice.actions
+export const { setCurrentContent, editCurrentContent } = currentContentSlice.actions

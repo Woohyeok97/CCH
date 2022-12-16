@@ -1,10 +1,9 @@
 /* eslint-disable */
 import { createSlice } from "@reduxjs/toolkit";
 import { format } from "date-fns";
-import { useSelector } from "react-redux";
 
 // useSeletor는 여기서 바로 호출이 안되는것 같은데...? 오류가 생기네
-const currentContent = useSelector( state => state.currentContent )
+// react hooks는 함수안에서만 호출해야하니까..
 
 // DB에 전송할 Content data를 담을 state 
 const initialState = {

@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+
 //components
 import AppWrap from "../component/common/appWrap";
 import Header from "../component/common/header";
@@ -10,8 +11,8 @@ import EditHeader from "../component/edit/editHeader";
 import EditWrite from "../component/edit/editWrite";
 import EditButton from "../component/edit/editButton";
 
-function Edit() {
 
+function Edit() {
     const currentContent = useSelector( state => state.currentContent )
     const navigate = useNavigate()
 

@@ -1,21 +1,28 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+
+// reducers
+import { editCurrentContent } from "../../store/currentContent";
+
 
 export default function useEditContent() {
     const currentContent = useSelector( state => state.currentContent )
-    
-    const changeModifiedContnet = ()=> {
-        const { name , value } = e.target
-        setModifiedContent({ ...modifiedContent, [name] : value  })
-    }
-    
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
-    // 해당 currendContent의 내용수정시, MongoDB에 put요청을 해주는 함수
+    // 해당 currentContent의 내용을 수정하는 함수
+    const changeCurrentContent = (e)=> {
+        const { name, value } = e.target
+        dispatch( editCurrentContent({ name, value }) )
+    }
+
+    // MongoDB에 수정된 currentContent를 실고, put요청을 해주는 함수
     const editContent = ()=> {
-        axios.put('http://localhost:3001/content/edit', modifiedContent )
-        .then((result)=>{ console.log(modifiedContent) })
+        axios.put('http://localhost:3001/content/edit', currentContent)
+        .then((result)=>{ alert(result.data.message, navigate('/list') ) })
         .catch((err)=>{ console.log('컨텐츠 PUT요청 실패...', err) })
     }
 
@@ -26,5 +33,5 @@ export default function useEditContent() {
         : null
     }
 
-    return { isEditContent, changeModifiedContnet }
+    return { isEditContent, changeCurrentContent }
 }
