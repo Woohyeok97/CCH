@@ -11,6 +11,7 @@ import UploadButton from '../component/list/uploadButton'
 
 
 function List() {
+
   return(
     <Appwrap background='#FEFBEA'>
       

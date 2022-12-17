@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from 'react'
+import { useSelector } from 'react-redux'
 //components
 import AppWrap from '../component/common/appWrap'
 import Header from '../component/common/header'
@@ -9,6 +10,8 @@ import PostContent from '../component/upload/postContent'
 import usePostContent from '../hooks/upload/usePostContent'
 
 function Upload() {
+  const currentContent = useSelector( state => state.currentContent )
+  console.log(currentContent)
 
   const { notifyUpload } = usePostContent()
 

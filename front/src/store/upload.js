@@ -24,14 +24,8 @@ const uploadSlice = createSlice({
         image : (state, action)=> {
             state.image = action.payload
         },
-        editText : (state, action)=> {
-           return state = { ...currentContent, text : action.payload } 
-        },
-        editImage : (state, action)=> {
-           return state = { ...currentContent, image : action.payload }
-        },
     }
 })
 
 export default uploadSlice
-export const { text, image, editText, editImage } = uploadSlice.actions
+export const { text, image } = uploadSlice.actions
