@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from "react";
 import styled from "styled-components";
+import usePostContent from "../../hooks/upload/usePostContent";
 
 //components
 import Button from "../common/button";
@@ -15,9 +16,11 @@ const UploadButtonStyled = styled.section`
 
 function UploadButton() {
 
+  const { isTodayUpload } = usePostContent()
+
   return (
     <UploadButtonStyled>
-      <Button size='large' color='yellow' url="upload">오늘의 나 칭찬하기</Button>
+      <Button size='large' color='yellow' action={ isTodayUpload }>오늘의 나 칭찬하기</Button>
     </UploadButtonStyled>
   )
 }

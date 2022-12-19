@@ -3,19 +3,26 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { isSameDay } from "date-fns";
 
 export default function usePostContent() {
 
     const uploadContent = useSelector( state => state.upload )
+    const content = useSelector( state => state.content )
     const navigate = useNavigate()
     
-    // 업로드컨텐츠의 text가 비었는지 체크
+    // 업로드컨텐츠의 text가 비었는지 체크하는 함수
     const isUpoadContentText = ()=> {
         return uploadContent.text ? true : false
     }
-    // 사용자가 오늘 이미 컨텐츠 업로드를 했는지 체크
-    const isTodayupload = ()=> {
-        return true
+    // 사용자가 오늘 이미 컨텐츠 업로드를 했는지 체크하는 함수
+    const isTodayUpload = ()=> {
+        if(content) {
+            return content.some( post => isSameDay(new Date(post.date), new Date()) )
+            ? alert('오늘 이미 칭찬했어요! 자의식과잉이야 뭐야~~')
+            : navigate('/upload')
+        }
+        navigate('/upload')
     }
     // 완성된 컨텐츠를 서버로 POST요청
     const postContent = ()=>{
@@ -32,5 +39,5 @@ export default function usePostContent() {
         else alert('내용을 입력해주세요!')
     }
 
-    return { notifyUpload }
+    return { notifyUpload, isTodayUpload }
 }
