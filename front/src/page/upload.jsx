@@ -1,17 +1,24 @@
 /* eslint-disable */
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router'
+
 //components
 import AppWrap from '../component/common/appWrap'
 import Header from '../component/common/header'
 import SetContent from '../component/upload/setCotent/setContent'
 import PostContent from '../component/upload/postContent'
+
 // custom hooks
 import usePostContent from '../hooks/upload/usePostContent'
 
 function Upload() {
-  const currentContent = useSelector( state => state.currentContent )
-  console.log(currentContent)
+  const navigate = useNavigate()
+  const { isTodayUpload } = usePostContent()
+
+  useEffect(()=>{
+    isTodayUpload()
+    navigate('/list')
+  }, [])
 
   const { notifyUpload } = usePostContent()
 
