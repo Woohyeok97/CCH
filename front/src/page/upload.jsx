@@ -14,13 +14,11 @@ import usePostContent from '../hooks/upload/usePostContent'
 function Upload() {
   const navigate = useNavigate()
   const { isTodayUpload } = usePostContent()
+  const { notifyUpload } = usePostContent()
 
   useEffect(()=>{
     isTodayUpload()
-    navigate('/list')
   }, [])
-
-  const { notifyUpload } = usePostContent()
 
   return(
     <AppWrap background="#FEFBEA">
