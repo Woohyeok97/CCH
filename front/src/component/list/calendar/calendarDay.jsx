@@ -22,11 +22,11 @@ const CalendarDayStyled = styled.div`
 
 function CalendarDay() {
 
-  const { setDays } = useSetCalendar()
+  const { weekArray } = useSetCalendar()
 
   return (
     <CalendarDayStyled>
-    { setDays() }
+    { weekArray.map((day, i)=> <div key={`${day}${i}`} className="day">{ day }</div>)}
     </CalendarDayStyled>
   )
 }

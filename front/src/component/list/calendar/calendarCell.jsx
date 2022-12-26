@@ -98,12 +98,7 @@ function WeekCell() {
 // date셀 컴포넌트
 function DateCell({ week }) {
   const { setClassName } = useSetCalendar()
-  const { changeCurrentContent, currentContent } = useSetDetail()
-
-  // useEffect(()=>{
-  //   if(!currentContent._id) console.log('컨텐츠 없잖슴~~~')
-  //   else console.log('currendContent!!', currentContent)
-  // },[currentContent])
+  const { changeCurrentContent } = useSetDetail()
 
   return week.map((item, i)=>{
     

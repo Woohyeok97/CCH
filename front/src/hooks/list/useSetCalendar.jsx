@@ -3,7 +3,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 // date-fns Library
 import { addDays, endOfMonth, endOfWeek, startOfMonth, startOfWeek, isSameMonth, isSameDay, } from "date-fns";
-
 //reducers
 import { setNextMonth, setPrevMonth } from "../../store/currentMonth";
 
@@ -17,13 +16,8 @@ export default function useSetCalendar() {
     const nextMonth = ()=> distpatch(setNextMonth(currentMonth))
     const prevMonth = ()=> distpatch(setPrevMonth(currentMonth))
 
-
-    // Days셀 컴포넌트 생성함수
+    // Days셀 컴포넌트 생성을 위한 요일Array
     const weekArray = ['SUN','MON','TUE','WED','THU','FRI','SAT']
-    const setDays = ()=>{
-        return weekArray.map((item, i) => <div key={`${item}${i}`} className="day">{ item }</div>)
-    }
-
 
     // date셀을 위한 만들기 위헤 해당월 Array생성
     const monthStartDate = startOfMonth(new Date(currentMonth)) // 이번달 시작일
@@ -38,7 +32,7 @@ export default function useSetCalendar() {
             this.content = 컨텐츠
         }
         isContent(content) { // 만약 인스턴스의 날짜 프로퍼티와 content의 날짜가 일치한다면 컨텐츠 프로퍼티에 content데이터를 저장
-            if(content) content.map( a => { isSameDay(new Date(a.date), this.date) ? this.content = a : null })
+            if(content) content.map( item => { isSameDay(new Date(item.date), this.date) ? this.content = item : null })
         }
     }
 
@@ -61,8 +55,6 @@ export default function useSetCalendar() {
         }
         return month
     }
-    // setMonth()
-    // console.log(month)
 
     //date셀한테 className을 부여해주는 함수(해당월의 날짜, selected)
     const setClassName = (item)=>{
@@ -73,5 +65,5 @@ export default function useSetCalendar() {
         return className
     }
 
-    return { currentMonth, nextMonth, prevMonth, setDays, setMonth, setClassName, }
+    return { currentMonth, nextMonth, prevMonth, weekArray, setMonth, setClassName, }
 }
