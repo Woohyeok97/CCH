@@ -8,7 +8,7 @@ import Header from './header'
 
 
 const SetContentStyled = styled.section`
-    flex-basis : 50%;
+    flex-basis : 60%;
     display : flex;
     flex-direction: column;
     align-items : center; 

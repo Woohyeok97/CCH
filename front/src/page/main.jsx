@@ -11,7 +11,7 @@ import LoginWrap from '../component/main/loginWrap'
 function Main() {
 
   return(
-  <AppWrap background='#FDDF3F' >
+  <AppWrap background='#FDDF3F'>
     <Intro/>
     <LoginWrap/>
     <Footer/>

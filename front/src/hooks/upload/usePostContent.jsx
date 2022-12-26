@@ -3,12 +3,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { isSameDay, format } from "date-fns";
+import { format } from "date-fns";
 
 export default function usePostContent() {
 
     const uploadContent = useSelector( state => state.upload )
-    const content = useSelector( state => state.content )
     const navigate = useNavigate()
     
     // 업로드컨텐츠의 text가 비었는지 체크하는 함수

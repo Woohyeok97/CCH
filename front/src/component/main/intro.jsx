@@ -19,7 +19,7 @@ function Intro() {
 
   return(
     <IntroStyled>
-      <h1>칭찬해~</h1>
+      <h1>칭찬해</h1>
     </IntroStyled>
   )
 }

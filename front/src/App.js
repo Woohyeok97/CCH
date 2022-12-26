@@ -9,13 +9,13 @@ import Upload from './page/upload'
 import Edit from './page/edit'
 import Login from './page/login'
 
-function App() {
+function App() {  
 
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={ <Main/> } />
-        <Route path='/list' element={ <List/> } />
+        <Route path='/list' element={ <List/>} />
         <Route path='/upload' element={ <Upload/> } />
         <Route path='/edit/:id' element={ <Edit/> } />
         <Route path='/login' element={ <Login/> } />

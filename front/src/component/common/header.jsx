@@ -12,6 +12,7 @@ const HeaderStyled = styled.header`
   display : flex;
   justify-content : center;
   align-items : center;
+  width : 100%;
   background-color : #FDDF3F;
   font-size : 2rem;
   font-weight : 800;

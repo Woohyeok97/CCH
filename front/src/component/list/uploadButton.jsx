@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React from "react";
 import styled from "styled-components";
-import usePostContent from "../../hooks/upload/usePostContent";
 
 //components
 import Button from "../common/button";
@@ -15,8 +14,6 @@ const UploadButtonStyled = styled.section`
 `
 
 function UploadButton() {
-
-  const { notifyTodayUpload } = usePostContent()
 
   return (
     <UploadButtonStyled>

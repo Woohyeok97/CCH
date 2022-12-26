@@ -12,7 +12,7 @@ const HeaderStyled = styled.div`
     align-items : center;
     width : 80%;
     padding : 16px 0;
-    margin-top : 5%;
+    margin-top : 3%;
     border-bottom : 2px solid #DFE0DF;
     box-sizing: border-box;
 
