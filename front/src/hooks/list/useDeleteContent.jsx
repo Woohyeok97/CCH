@@ -17,7 +17,7 @@ export default function useDeleteContent() {
     const isDeleteContent = ()=> {
         confirm(`칭찬을 삭제할까요?
         
-(주의! 해당날짜에 다시 칭찬할수 없습니다!)`)
+(주의! 오늘을 제외한 다른날짜에 다시 칭찬할수 없습니다!)`)
         ? deleteContent()
         : alert('취소! 계속 칭찬해~')
     }

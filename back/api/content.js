@@ -44,7 +44,6 @@ router.put('/edit', (req, res)=>{
     Post.updateOne({ _id : req.body._id }, { $set : { text : req.body.text, image : req.body.image } },
         (에러, 결과)=>{
             if(!결과) return res.send({ message : 'content 수정요청실패..', err : 결과 })
-            console.log(req.body)
             res.send({ 결과 : 결과, message : 'content수정성공!' })
         })
 })

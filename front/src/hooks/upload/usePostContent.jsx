@@ -24,7 +24,7 @@ export default function usePostContent() {
     // 사용자가 오늘 이미 컨텐츠 업로드를 했다면, 포스트를 올릴수 없다고 안내해주는 함수
     const notifyTodayUpload = () => {
         alert('이미칭찬했음! 자의식과잉이야 뭐야~~')
-        navigate('/list')
+        window.location.replace('/list')
     }
     // 완성된 컨텐츠를 서버로 POST요청
     const postContent = ()=>{
@@ -36,7 +36,7 @@ export default function usePostContent() {
     const notifyUpload = ()=> {
         if(isUpoadContentText()) {
             postContent()
-            alert('칭찬해~', navigate('/list'))
+            alert('칭찬해~', window.location.replace('/list'))
         }
         else alert('내용을 입력해주세요!')
     }

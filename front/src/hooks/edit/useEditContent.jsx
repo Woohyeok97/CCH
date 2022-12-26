@@ -22,7 +22,7 @@ export default function useEditContent() {
     // MongoDB에 수정된 currentContent를 실고, put요청을 해주는 함수
     const editContent = ()=> {
         axios.put('http://localhost:3001/content/edit', currentContent)
-        .then((result)=>{ alert(result.data.message, navigate('/list') ) })
+        .then((result)=>{ alert(result.data.message, window.location.replace('/list') ) })
         .catch((err)=>{ console.log('컨텐츠 PUT요청 실패...', err) })
     }
 
