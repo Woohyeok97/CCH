@@ -7,7 +7,7 @@ import Main from './page/main'
 import List from './page/list'
 import Upload from './page/upload'
 import Edit from './page/edit'
-import Login from './page/login'
+import SignUp from './page/signUp'
 
 function App() {  
 
@@ -18,7 +18,7 @@ function App() {
         <Route path='/list' element={ <List/>} />
         <Route path='/upload' element={ <Upload/> } />
         <Route path='/edit/:id' element={ <Edit/> } />
-        <Route path='/login' element={ <Login/> } />
+        <Route path='/signup' element={ <SignUp/> } />
       </Routes>
     </div>
   );

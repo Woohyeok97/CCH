@@ -5,7 +5,7 @@ import React from 'react'
 import AppWrap from '../component/common/appWrap'
 import Footer from '../component/common/footer'
 import Intro from '../component/main/intro'
-import LoginWrap from '../component/main/loginWrap'
+import GoogleLogin from '../component/main/googleLogin'
 
 
 function Main() {
@@ -13,7 +13,7 @@ function Main() {
   return(
   <AppWrap background='#FDDF3F'>
     <Intro/>
-    <LoginWrap/>
+    <GoogleLogin/>
     <Footer/>
   </AppWrap>
 )

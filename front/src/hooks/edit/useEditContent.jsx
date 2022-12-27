@@ -11,7 +11,6 @@ import { editCurrentContent } from "../../store/currentContent";
 export default function useEditContent() {
     const currentContent = useSelector( state => state.currentContent )
     const dispatch = useDispatch()
-    const navigate = useNavigate()
 
     // 해당 currentContent의 내용을 수정하는 함수
     const changeCurrentContent = (e)=> {

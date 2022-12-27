@@ -4,7 +4,7 @@ const { Schema } = mongoose
 
 // SChema라는 constructor로 MongoDB에 들어갈 collection을 만듬   
 const UserSchema = new Schema({
-    name : {
+    userId : {
         type : String,
         required : true,
     },
