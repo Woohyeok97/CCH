@@ -7,7 +7,7 @@ import Button from '../common/button'
  
  
 const PostContentStyled = styled.section`
-    flex-basis : 20%;
+    flex-basis : 30%;
     display : flex;
     justify-content : center;
     align-items : center;

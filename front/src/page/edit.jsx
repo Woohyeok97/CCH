@@ -6,10 +6,7 @@ import { useNavigate } from "react-router";
 //components
 import AppWrap from "../component/common/appWrap";
 import Header from "../component/common/header";
-import LayoutBox from "../component/common/layoutBox";
-import EditHeader from "../component/edit/editHeader";
-import EditWrite from "../component/edit/editWrite";
-import EditButton from "../component/edit/editButton";
+import EditBody from "../component/edit/editBody";
 
 
 function Edit() {
@@ -23,11 +20,7 @@ function Edit() {
     return (
         <AppWrap background="#FEFBEA">
             <Header>칭찬수정</Header>
-            <LayoutBox basis='70%' direction='column' align='center'>
-                <EditHeader/>
-                <EditWrite/>
-                <EditButton/>
-            </LayoutBox>
+            <EditBody/>
         </AppWrap>
     )
 }

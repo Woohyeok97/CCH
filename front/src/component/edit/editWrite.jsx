@@ -7,6 +7,7 @@ import useEditContent from '../../hooks/edit/useEditContent'
 //custom hooks
 
 const SetValueStyled = styled.div`
+  flex-basis : 50%;
   width : 80%;
   height : 100%;
   padding-top : 36px;
@@ -14,7 +15,7 @@ const SetValueStyled = styled.div`
   > textarea {
     font-size : 2.5rem;
     width : 100%;
-    height : 100%;
+    padding : 24px;
     background-color : #FFF9E8;
     border : none;
     box-sizing: border-box;

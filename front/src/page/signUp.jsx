@@ -18,12 +18,10 @@ function SignUp() {
 
   const { isMember } = useCheckMember()
 
-  console.log(accessToken)
   useEffect(()=>{
-    // if(!value) navigate('/list')
     axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`)
-    .then((result)=>{ isMember(result.data.id) })
-    .catch(()=>{})
+    .then((result)=>{ console.log(isMember(result.data.id)) })
+    .catch((err)=>{ console.log(err) })
   }, [])
 
   return(
