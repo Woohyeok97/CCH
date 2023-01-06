@@ -7,4 +7,5 @@ const content = require('./content')
 router.use('/user', user)
 router.use('/content', content)
 
+
 module.exports = router;

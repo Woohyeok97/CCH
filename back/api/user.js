@@ -15,4 +15,13 @@ router.post('/isMember', (req, res)=>{
     })
 })
 
+router.post('/test', (req, res)=>{
+    User.findOne({ userId : req.body.data }, (에러, 결과)=>{
+        console.log(req.body.data)
+        console.log('결과임 => ', 결과)
+        if(!결과) return res.send({ data : '유저없는디' })
+        res.send({ data : '옛다! 입장권~'})
+    })
+})
+
 module.exports = router
