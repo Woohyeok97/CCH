@@ -19,8 +19,8 @@ router.post('/test', (req, res)=>{
     User.findOne({ userId : req.body.data }, (에러, 결과)=>{
         console.log(req.body.data)
         console.log('결과임 => ', 결과)
-        if(!결과) return res.send({ data : '유저없는디' })
-        res.send({ data : '옛다! 입장권~'})
+        if(!결과) return res.send({ data : false, message : '이런사람 없는디' })
+        res.send({ data : true, message : '있네유' })
     })
 })
 

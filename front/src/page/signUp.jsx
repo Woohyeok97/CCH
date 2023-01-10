@@ -11,18 +11,7 @@ import useCheckMember from '../hooks/signup/useCheckMember'
 
 
 function SignUp() {
-  const navigate = useNavigate()
-  const value = true
-  const parsedHash = new URLSearchParams(window.location.hash.substring(1))
-  const accessToken = parsedHash.get("access_token")
 
-  const { isMember } = useCheckMember()
-
-  useEffect(()=>{
-    axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`)
-    .then((result)=>{ console.log(isMember(result.data.id)) })
-    .catch((err)=>{ console.log(err) })
-  }, [])
 
   return(
     <AppWrap background='#FDDF3F'>

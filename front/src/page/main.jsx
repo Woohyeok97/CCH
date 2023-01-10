@@ -1,40 +1,53 @@
 /* eslint-disable */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-
 // 컴포넌트들
 import AppWrap from '../component/common/appWrap'
 import Footer from '../component/common/footer'
 import Intro from '../component/main/intro'
 import GoogleLogin from '../component/main/googleLogin'
+import useCheckMember from '../hooks/signup/useCheckMember'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
+
+import Header from '../component/common/header'
+import SignUpButton from '../component/signUp/signUpButton'
+import WriteInfo from '../component/signUp/writeInfo'
 
 
 function Main() {
+  const navigate = useNavigate()
   const parsedHash = new URLSearchParams(window.location.hash.substring(1));
   const accessToken = parsedHash.get("access_token");
-  // const test = ()=> {
-  //   if(accessToken) axios.post("http://localhost:3001/user/test", { accessToken });
+
+
+  const user = useSelector( state => state.user )
+  const { test, swit, setSwit  } = useCheckMember()
+
+  useEffect(()=>{
+    test(accessToken)
+    return ()=> setSwit(false); 
+  }, [])
+
+  // const render = (user)=>{
+  //   if(user) return <p>이미 회원이시네요!</p>
+  //   window.location.replace('/signup')
   // }
-  const test = async ()=> { 
-    if(accessToken) {
-      const { data } = await axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`);
-      const result = await axios.post('http://localhost:3001/user/test', { data : data.id })
-      console.log(result)
-    }
-  }
-  test()
-  console.log(accessToken)
 
-  // const { data } = await Api.post("oauth/google", { accessToken });
+  useEffect(()=>{
 
-  return(
-  <AppWrap background='#FDDF3F'>
-    <Intro/>
-    <GoogleLogin/>
-    <button>로그아웃</button>
-    <Footer/>
-  </AppWrap>
-)
+  },[])
+  
+
+  if(swit) return (
+    <AppWrap background='#FDDF3F'>
+      <Intro/>
+      { accessToken ? <p>gd</p> : <GoogleLogin/> }
+      <Footer/>
+    </AppWrap>
+  )
 }
 
 export default Main
+
+

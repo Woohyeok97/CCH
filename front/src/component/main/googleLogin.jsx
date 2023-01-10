@@ -20,6 +20,7 @@ function GoogleLogin() {
   "response_type=token&"+
   "scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";;
 
+  
   return (
     <GoogleLoginStyled>
       <Button size='large' color='brown' href={ googleLoginHref }>구글 계정으로 로그인 하기</Button>

@@ -11,11 +11,12 @@ import SignUp from './page/signUp'
 
 function App() {  
 
+
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={ <Main/> } />
-        <Route path='/list' element={ <List/>} />
+        <Route path='/list' element={ <List/> } />
         <Route path='/upload' element={ <Upload/> } />
         <Route path='/edit/:id' element={ <Edit/> } />
         <Route path='/signup' element={ <SignUp/> } />
