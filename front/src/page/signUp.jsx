@@ -1,17 +1,20 @@
 /* eslint-disable */
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router'
 import AppWrap from '../component/common/appWrap'
-import axios from 'axios'
+import { useSelector } from 'react-redux'
 // component
 import Header from '../component/common/header'
 import SignUpButton from '../component/signUp/signUpButton'
 import WriteInfo from '../component/signUp/writeInfo'
-import useCheckMember from '../hooks/signup/useCheckMember'
+
 
 
 function SignUp() {
 
+  const signUpUserData = useSelector( state => state.setRenderState )
+  useEffect(()=>{
+    console.log(signUpUserData)
+  },[])
 
   return(
     <AppWrap background='#FDDF3F'>
