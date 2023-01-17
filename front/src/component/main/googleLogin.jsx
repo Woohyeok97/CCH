@@ -23,7 +23,7 @@ function GoogleLogin() {
   
   return (
     <GoogleLoginStyled>
-      <Button size='large' color='brown' href={ googleLoginHref }>구글 계정으로 로그인 하기</Button>
+      <Button size='large' color='brown' href={ googleLoginHref }>구글 계정으로 시작하기</Button>
     </GoogleLoginStyled>
   )
 }

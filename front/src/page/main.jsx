@@ -19,7 +19,7 @@ function Main() {
   if(renderState) return (
     <AppWrap background='#FDDF3F'>
       <Intro/>
-      { accessToken ? <p>gd</p> : <GoogleLogin/> }
+      { accessToken ? null : <GoogleLogin/> }
       <Footer/>
     </AppWrap>
   )
