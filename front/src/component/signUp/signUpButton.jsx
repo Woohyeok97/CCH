@@ -13,7 +13,7 @@ function SignUpButton() {
 
     return (
         <SignUpButtonStyled>
-            <Button size="large" color="black" action={ console.log(signUpUserData) }>칭찬시작!</Button>
+            <Button size="large" color="black" action={ console.log(signUpUserData) }>칭찬시작해!</Button>
         </SignUpButtonStyled>
     )
 }
