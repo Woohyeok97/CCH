@@ -1,29 +1,32 @@
 /* eslint-disable */
 import React from 'react'
-// 컴포넌트들
+
+// components
 import AppWrap from '../component/common/appWrap'
+import LayoutBox from '../component/common/layoutBox'
 import Footer from '../component/common/footer'
 import Intro from '../component/main/intro'
 import GoogleLogin from '../component/main/googleLogin'
+import StartLayout from '../component/main/startLayout'
+
+// custom hooks
 import useCheckMember from '../hooks/signup/useCheckMember'
 
 
+
+
 function Main() {
-  // const parsedHash = new URLSearchParams(window.location.hash.substring(1));
-  // const accessToken = parsedHash.get("access_token");
   const { renderState, accessToken } = useCheckMember()
-
-
-  
 
   if(renderState) return (
     <AppWrap background='#FDDF3F'>
       <Intro/>
-      { accessToken ? null : <GoogleLogin/> }
+      { accessToken ? <StartLayout/> : <GoogleLogin/> }
       <Footer/>
     </AppWrap>
   )
 }
+
 
 export default Main
 

@@ -1,35 +1,39 @@
 /* eslint-disable */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { setSignUpUserData } from "../../store/signUpUserData";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserData } from "../../store/userData";
 
 export default function useCheckMember() {
+    const userData = useSelector( state => state.userData )
     const dispatch = useDispatch()
+
     // 구글OAuth에서 받은 Access Token을 변수에 저장
     const parsedHash = new URLSearchParams(window.location.hash.substring(1));
     const accessToken = parsedHash.get("access_token");
 
-    // 조건부 렌더링을 위한 state를 만들어줌
-    // 함수동작후, 렌더링을 하기위함!
+    // 조건부 렌더링을 위해 렌더링스위치를 만들어줌
     const [renderState, setRenderState] = useState(false)
 
-    // 해당유저가 CCH의 기존회원인지 확인후, list or signup 으로 이동시키는 함수
-    const isMember = async ()=> { 
+    // 구글한테 유저정보를 받고 redux로 상태관리
+    const getUserData = async ()=> { 
       if(accessToken) {
         const { data } = await axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`)
-        const response = await axios.post('http://localhost:3001/user/test', { data : data.id })
-
-        accessToken && !response.data.data ? window.location.replace('/signup'): window.location.replace('/list')
-        dispatch( setSignUpUserData(data) ) // 비회원일 경우, signup 컴포넌트에서 데이터를 사용할수 있게, state변경함!
-        setRenderState(true) // 위 동작이 다끝나고 조건부로 main 컴포넌트를 로드함!
+        dispatch( setUserData(data) )
       }
-      else setRenderState(true)
+        else setRenderState(true) // access token이 없는 경우에도 렌더링스위치를 켜줌
     }
 
+    // 컴포넌트 첫 등장시, getUserData() 함수를 실행함
     useEffect(()=>{
-      isMember()
+      getUserData()
     }, [])
+    // getUserData() 함수로 userData가 변경될때마다 렌더링스위치를 켜줌(조건부렌더링 처럼!)
+    useEffect(()=>{
+      if(userData) setRenderState(true)
+    }, [userData])
+
+   
 
     return { renderState, accessToken }
 }
