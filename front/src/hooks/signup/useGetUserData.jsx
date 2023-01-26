@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserData } from "../../store/userData";
 
-export default function useCheckMember() {
+export default function useGetUserData() {
     const userData = useSelector( state => state.userData )
     const dispatch = useDispatch()
 

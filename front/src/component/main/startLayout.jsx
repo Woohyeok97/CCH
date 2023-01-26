@@ -25,7 +25,7 @@ function StartLayout() {
         <StartLayoutStyled>
             <div>
                 <span className="user-name">{userData.name} </span>
-                <span>님 안녕하세용~</span>
+                <span>님 안녕하세요!</span>
             </div>
             <Button size="large" color="brown" url="list" >칭찬 시작하기!</Button>
         </StartLayoutStyled>
