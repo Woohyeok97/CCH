@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router()
+// axios 라이브러리
+const axios = require('axios');
 // mongoose schema 가져오기
 const Post = require('../models/post')
 // req.body를 사용하기 위한 body-parser 셋팅

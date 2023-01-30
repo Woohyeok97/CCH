@@ -20,7 +20,7 @@ const StartLayoutStyled = styled.section`
 
 function StartLayout() {
     const userData = useSelector( state => state.userData )
-
+    
     return (
         <StartLayoutStyled>
             <div>
