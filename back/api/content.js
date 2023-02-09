@@ -2,11 +2,16 @@ const express = require('express')
 const router = express.Router()
 // axios 라이브러리
 const axios = require('axios');
+// 이미지 업로드 라이브러리 multer
+const multer = require('multer');
 // mongoose schema 가져오기
 const Post = require('../models/post')
+
 // req.body를 사용하기 위한 body-parser 셋팅
 router.use( express.json() )
 router.use( express.urlencoded({ extended : true }) )
+
+
 
 // [ GET요청 ] post/get -> 포스트 가져오기
 // [ POST요청 ] post/upload -> 포스트 올리기
