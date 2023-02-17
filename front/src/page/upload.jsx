@@ -17,20 +17,19 @@ import LayoutBox from '../component/common/layoutBox'
 
 
 function Upload() {
-  const { isTodayUpload, notifyUpload } = usePostContent()
+  const { postUploadContent } = usePostContent()
 
-  useEffect(()=>{
-    isTodayUpload()
-  }, [])
- 
   return(
     <AppWrap background="#FEFBEA">
+      
       <Header>오늘의 나 칭찬하기</Header>
+
       <LayoutBox direction="column" width="80%">
         <Title basis="10%">{ <ImageUploadInput>이미지 추가!</ImageUploadInput> }</Title>
         <UploadContents basis="60%"/>
-        <UploadButton action={ notifyUpload } basis="30%"/>
+        <UploadButton action={ postUploadContent } basis="30%"/>
       </LayoutBox>
+
     </AppWrap>
   )
 }
