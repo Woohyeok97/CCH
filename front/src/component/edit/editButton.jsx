@@ -6,8 +6,26 @@ import useEditContent from '../../hooks/edit/useEditContent'
 import Button from '../common/button'
  
  
+
+ 
+function EditButton({ basis }) {
+    const navigate = useNavigate()
+    const cancel = ()=> navigate('/list')
+    const { isEditContent } = useEditContent()
+
+    return (
+        <PostContentStyled basis={basis}>
+            <div>
+                <Button size="large" action={ cancel }>취소</Button>
+                <Button size="large" color="green" action={ isEditContent }>수정</Button>
+            </div>
+        </PostContentStyled>
+    )
+}
+
+
 const PostContentStyled = styled.section`
-    flex-basis : 30%;
+    flex-basis : ${(props)=> props.basis || '100%' };
     display : flex;
     justify-content : center;
     align-items : center;
@@ -17,22 +35,7 @@ const PostContentStyled = styled.section`
     justify-content : space-around;
     width : 260px;
     }
-    `
- 
-function EditButton() {
-    const navigate = useNavigate()
-    const cancel = ()=> navigate('/list')
-    const { isEditContent } = useEditContent()
-
-    return (
-        <PostContentStyled>
-            <div>
-                <Button size="large" action={ cancel }>취소</Button>
-                <Button size="large" color="green" action={ isEditContent }>수정</Button>
-            </div>
-        </PostContentStyled>
-    )
-}
+`
  
  
  

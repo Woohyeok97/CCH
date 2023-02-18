@@ -4,12 +4,12 @@
  
 
  
- function Title({ children, basis }) {
+ function Title({ children, date, basis }) {
  
     return(
         <TitleStyled basis={basis}>
             { children }
-            <h3>2022년 12월 25일</h3>
+            <h3>{date}</h3>
         </TitleStyled>
     )
 }

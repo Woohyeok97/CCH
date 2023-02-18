@@ -6,21 +6,21 @@ import styled from 'styled-components'
 import useSetContent from '../../hooks/upload/useSetContent'
 
 
-function UploadContents({ basis }) {
+function UploadContent({ basis }) {
 
   const { setText } = useSetContent()
   
   return(
-   <UploadContentsStyled basis={basis}>
+   <UploadContentStyled basis={basis}>
      <textarea placeholder="오늘의 나를 칭찬해보자!" spellCheck="false"
      onChange={(e)=>{ setText(e) }}/>
-   </UploadContentsStyled>
+   </UploadContentStyled>
   )
 }
 
 
 
-const UploadContentsStyled = styled.div`
+const UploadContentStyled = styled.div`
   flex-basis : ${(props)=> props.basis || '100%' };
   padding-top : 36px;
   
@@ -40,4 +40,4 @@ const UploadContentsStyled = styled.div`
   }
 `
 
-export default UploadContents;
+export default UploadContent;

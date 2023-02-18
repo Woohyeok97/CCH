@@ -1,18 +1,22 @@
  /* eslint-disable */
 import React from 'react'
+import { useNavigate } from 'react-router'
 import styled from 'styled-components'
+import usePostContent from '../../hooks/upload/usePostContent'
 // common components
 import Button from '../common/button'
-import LayoutBox from '../common/layoutBox'
 
 
-function UploadButton({ action, basis }) {
+function UploadButton({ basis }) {
+  const navigate = useNavigate()
+  const cancel = navigate('/list')
+  const { postUploadContent } = usePostContent()
 
   return (
     <UploadButtonStyled basis={basis}>
       <div>
-        <Button size="large" >취소</Button>
-        <Button size="large" color="green" action={ action }>칭찬!</Button>
+        <Button size="large" action={ cancel }>취소</Button>
+        <Button size="large" color="green" action={ postUploadContent }>칭찬!</Button>
       </div>
     </UploadButtonStyled>
   )
