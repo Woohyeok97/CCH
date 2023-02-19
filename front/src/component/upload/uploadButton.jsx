@@ -9,13 +9,13 @@ import Button from '../common/button'
 
 function UploadButton({ basis }) {
   const navigate = useNavigate()
-  const cancel = navigate('/list')
+  const movementList = () => navigate('/list')
   const { postUploadContent } = usePostContent()
 
   return (
     <UploadButtonStyled basis={basis}>
       <div>
-        <Button size="large" action={ cancel }>취소</Button>
+        <Button size="large" action={ movementList }>취소</Button>
         <Button size="large" color="green" action={ postUploadContent }>칭찬!</Button>
       </div>
     </UploadButtonStyled>

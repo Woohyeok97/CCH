@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import axios from 'axios'
@@ -11,6 +11,7 @@ export default function usePostContent() {
 
     const uploadContent = useSelector( state => state.upload )
     const navigate = useNavigate()
+    const [ isUploading, setIsUploading ] = useState(false)
     
     // 업로드컨텐츠의 text가 비었는지 체크하는 함수
     const isUploadContentText = ()=> !!uploadContent.text
@@ -23,6 +24,9 @@ export default function usePostContent() {
     }
     // 서버에 사용자가 작성한 컨텐츠를 전송하는 함수
     const postUploadContent = async ()=> {
+        if(isUploading) return // 불필요한 재렌더링을 막기위한 isUploading
+        setIsUploading(true) // 이로써 버튼을 여러번 눌러도 한번막 작동하기 때문에 불필여한 재렌더링을 막을수있음
+
         const isUpload = await checkTodayUpload()
         if(isUpload) {
             alert('오늘 이미 칭찬했어용!')
@@ -43,7 +47,7 @@ export default function usePostContent() {
             alert('요청에러발생!', error)
             navigate('/list')
         }
-
+        setIsUploading(false)
     }
 
 

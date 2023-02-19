@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 //components
@@ -14,10 +15,13 @@ const UploadButtonStyled = styled.section`
 `
 
 function UploadButton() {
+  const navigate = useNavigate()
+  const movementUpload = ()=> navigate('/upload')
+
 
   return (
     <UploadButtonStyled>
-      <Button size='large' color='yellow' url="upload" >오늘의 나 칭찬하기</Button>
+      <Button size='large' color='yellow' action={ movementUpload } >오늘의 나 칭찬하기</Button>
     </UploadButtonStyled>
   )
 }

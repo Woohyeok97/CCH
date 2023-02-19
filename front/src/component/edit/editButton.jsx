@@ -10,14 +10,14 @@ import Button from '../common/button'
  
 function EditButton({ basis }) {
     const navigate = useNavigate()
-    const cancel = ()=> navigate('/list')
-    const { isEditContent } = useEditContent()
+    const movementList = ()=> navigate('/list')
+    const { editContent } = useEditContent()
 
     return (
         <PostContentStyled basis={basis}>
             <div>
-                <Button size="large" action={ cancel }>취소</Button>
-                <Button size="large" color="green" action={ isEditContent }>수정</Button>
+                <Button size="large" action={ movementList }>취소</Button>
+                <Button size="large" color="green" action={ editContent }>수정</Button>
             </div>
         </PostContentStyled>
     )
