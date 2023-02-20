@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect } from 'react'
+import React from 'react'
 
 // common components
 import AppWrap from '../component/common/appWrap'

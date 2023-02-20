@@ -9,18 +9,18 @@ import GoogleLogin from '../component/main/googleLogin'
 import StartLayout from '../component/main/startLayout'
 
 // custom hooks
-import useGetUserData from '../hooks/signup/useGetUserData'
+import useGetUserData from '../hooks/main/useGetUserData'
 
 
 
 
 function Main() {
-  const { renderState, accessToken } = useGetUserData()
+  const { isLoginning, idToken } = useGetUserData()
 
-  if(renderState) return (
+  if(isLoginning) return (
     <AppWrap background='#FDDF3F'>
       <Intro/>
-      { accessToken ? <StartLayout/> : <GoogleLogin/> }
+      { idToken ? <StartLayout/> : <GoogleLogin/> }
       <Footer/>
     </AppWrap>
   )

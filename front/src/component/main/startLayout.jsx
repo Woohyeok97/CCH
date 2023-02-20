@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 // components
 import styled from "styled-components";
@@ -20,6 +21,8 @@ const StartLayoutStyled = styled.section`
 
 function StartLayout() {
     const userData = useSelector( state => state.userData )
+    const navigate = useNavigate()
+    const movementList = () => navigate('/list')
     
     return (
         <StartLayoutStyled>
@@ -27,7 +30,7 @@ function StartLayout() {
                 <span className="user-name">{userData.name} </span>
                 <span>님 안녕하세요!</span>
             </div>
-            <Button size="large" color="brown" url="list" >칭찬 시작하기!</Button>
+            <Button size="large" color="brown" action={ movementList } >칭찬 시작하기!</Button>
         </StartLayoutStyled>
     )
 }

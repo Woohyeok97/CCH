@@ -14,6 +14,10 @@ router.post('/isMember', (req, res)=>{
         res.send(true)
     })
 })
+router.post('/postAccessToken', (req, res)=>{
+    console.log(req.body)
+    res.send({ message : '토큰받았어!' })
+})
 
 router.post('/test', (req, res)=>{
     User.findOne({ userId : req.body.data }, (에러, 결과)=>{

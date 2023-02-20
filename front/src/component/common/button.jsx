@@ -4,13 +4,17 @@ import styled, { css } from 'styled-components'
 
 
 
-function Button({ children, size, color, url, action, href}) {
+function Button({ children, size, color, action, href}) {
 
   const buttonSize = SIZE[size]
   const buttonColor = COLOR[color]
   
   return (
-    <StyleButton buttonSize={buttonSize} buttonColor={buttonColor} onClick={()=>{ action ? action() : null; }}>
+    <StyleButton buttonSize={buttonSize} buttonColor={buttonColor} 
+    onClick={()=>{ 
+      action ? action() : null;
+      href ?  window.location.href = href : null;
+      }}>
       { children }
     </StyleButton>
   )
