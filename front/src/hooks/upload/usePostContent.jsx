@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
+import { useCookies } from "react-cookie"
 import axios from 'axios'
 // date-fns
 import { format } from "date-fns";
@@ -12,6 +13,8 @@ export default function usePostContent() {
     const uploadContent = useSelector( state => state.upload )
     const navigate = useNavigate()
     const [ isUploading, setIsUploading ] = useState(false)
+    const [ cookies, ] = useCookies(['jwtToken'])
+    const jwtToken = cookies.jwtToken
     
     // 업로드컨텐츠의 text가 비었는지 체크하는 함수
     const isUploadContentText = ()=> !!uploadContent.text

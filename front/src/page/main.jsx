@@ -9,13 +9,13 @@ import GoogleLogin from '../component/main/googleLogin'
 import StartLayout from '../component/main/startLayout'
 
 // custom hooks
-import useGetUserData from '../hooks/main/useGetUserData'
+import useLogin from '../hooks/main/useLogin'
 
 
 
 
 function Main() {
-  const { isLoginning, idToken } = useGetUserData()
+  const { isLoginning, idToken } = useLogin()
 
   if(isLoginning) return (
     <AppWrap background='#FDDF3F'>
