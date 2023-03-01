@@ -36,7 +36,6 @@ const verifyIdToken = async (req, res, next) => {
 }
 
 
-
 router.post('/getJWT',verifyIdToken, (req, res) => {
 
     // 시크릿키와, 미들웨어를 통해 받은 사용자정보를 저장
@@ -49,7 +48,7 @@ router.post('/getJWT',verifyIdToken, (req, res) => {
     // JWT토큰 발급
     const jwtToken = jwt.sign(jwtPayload, secretKey, { expiresIn: '1h' })
     // 발급한 jwt토큰을 전달
-    res.send({ jwtToken: jwtToken });
+    res.send({ jwtToken : jwtToken });
 });
 
 module.exports = router;

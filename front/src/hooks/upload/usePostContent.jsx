@@ -15,7 +15,8 @@ export default function usePostContent() {
     const [ isUploading, setIsUploading ] = useState(false)
     const [ cookies, ] = useCookies(['jwtToken'])
     const jwtToken = cookies.jwtToken
-    
+    console.log(cookies)
+
     // 업로드컨텐츠의 text가 비었는지 체크하는 함수
     const isUploadContentText = ()=> !!uploadContent.text
   
