@@ -22,7 +22,7 @@ export default function useLogin() {
     // 컴포넌트 첫 등장시, postIdToken 함수를 실행함
     useEffect(()=>{
         if(idToken) { 
-            saveJWTinCookie()
+            saveJWTinCookie(idToken)
             setIsLoginning(true)
         }
         else setIsLoginning(true)
@@ -30,17 +30,12 @@ export default function useLogin() {
     
     
 
-    // 구글OAuth에서 받은 Access Token을 서버측에 전달 & 받아온 JWT토큰을 반환 
-    const postIdToken = async (idToken)=> {
+    // 구글OAuth에서 받은 Access Token을 서버측에 전달 & 받아온 JWT토큰을 쿠키에 저장
+    const saveJWTinCookie = async (idToken)=> {
         const response = await axios.post('http://localhost:3001/login/getJWT', { idToken })
-        return { jwt : response.data.jwtToken }
+        setCookies('jwtToken', response.data.jwtToken, { path : '/', maxAge : 3600 })
     }
-    // 쿠키에 jwt 토크을 저장하는 함수
-    const saveJWTinCookie = async () => {
-        const result = await postIdToken(idToken)
-        setCookies('jwtToken', result.jwt, { path : '/', maxAge : 3600 })
-        // if(cookies.jwtToken) dispatch( setJwtToken(cookies.jwtToken) )
-    }
+
     // 쿠키에 jwt 토크을 삭제하는 함수
     const removeJWTinCookie = () => {
         setCookies('jwtToken', null, { path : '/' })
