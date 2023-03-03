@@ -29,7 +29,6 @@ export default function useLogin() {
     }, [])
     
     
-
     // 구글OAuth에서 받은 Access Token을 서버측에 전달 & 받아온 JWT토큰을 쿠키에 저장
     const saveJWTinCookie = async (idToken)=> {
         const response = await axios.post('http://localhost:3001/login/getJWT', { idToken })
