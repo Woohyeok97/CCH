@@ -7,9 +7,12 @@ import Main from './page/main'
 import List from './page/list'
 import Upload from './page/upload'
 import Edit from './page/edit'
+// custom hooks
+import useGetUserData from '../src/hooks/common/useGetUserData'
 
 function App() {  
 
+  const {  } = useGetUserData()
 
   return (
     <div className="App">
