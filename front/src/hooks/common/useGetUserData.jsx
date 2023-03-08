@@ -15,10 +15,8 @@ export default function useGetUserData() {
 
     useEffect(()=>{
         if(cookies.jwtToken) {
-            getUserDataFromJwtToken(cookies.jwtToken)
-            
+            getUserDataFromJwtToken(cookies.jwtToken)   
         }
-        console.log('useEffect 실행됨!')
     },[])
 
     const getUserDataFromJwtToken= (jwt)=> {
