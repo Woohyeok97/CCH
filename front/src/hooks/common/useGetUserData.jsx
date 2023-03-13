@@ -18,7 +18,8 @@ export default function useGetUserData() {
             getUserDataFromJwtToken(cookies.jwtToken)   
         }
     },[])
-    
+    console.log(userData)
+
     const getUserDataFromJwtToken= (jwt)=> {
         dispatch( setUserData(jwt_decode(jwt)) )
     }

@@ -20,15 +20,15 @@ export default function useLogin() {
     // 컴포넌트 첫 등장시, postIdToken 함수를 실행함
     useEffect(()=>{
         if(idToken) { 
-            saveJWTinCookie(idToken)
+            saveJWTinCookie(idToken, accessToken)
             setIsLoginning(true)
         }
         else setIsLoginning(true)
     }, [])
     
     // 구글OAuth에서 받은 Access Token을 서버측에 전달 & 받아온 JWT토큰을 쿠키에 저장
-    const saveJWTinCookie = async (idToken)=> {
-        const response = await axios.post('http://localhost:3001/login/getJWT', { idToken })
+    const saveJWTinCookie = async (idToken, accessToken)=> {
+        const response = await axios.post('http://localhost:3001/login/getJWT', { idToken : idToken, accessToken : accessToken })
         setCookies('jwtToken', response.data.jwtToken, { path : '/', maxAge : 3600 })
     }
 

@@ -24,6 +24,8 @@ function StartLayout() {
     const navigate = useNavigate()
     const movementList = () => navigate('/list')
     
+
+    
     return (
         <StartLayoutStyled>
             <div>
