@@ -45,6 +45,7 @@ router.post('/getJWT',verifyIdToken, (req, res) => {
       name : res.locals.payload.name,
       email : res.locals.payload.email
     }
+    
     // JWT토큰 발급
     const jwtToken = jwt.sign(jwtPayload, secretKey, { expiresIn: '1h' })
     // 발급한 jwt토큰을 전달

@@ -12,8 +12,10 @@ export default function useLogin() {
     // 구글OAuth에서 받은 IdToken을 변수에 저장
     const parsedHash = new URLSearchParams(window.location.hash.substring(1));
     const idToken = parsedHash.get("id_token");
+    const accessToken = parsedHash.get("access_token");
     // 쿠키에 jwt를 저장하기 위한 cookies
     const [ cookies, setCookies ] = useCookies(['jwtToken'])
+
 
     // 컴포넌트 첫 등장시, postIdToken 함수를 실행함
     useEffect(()=>{
