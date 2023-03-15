@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
@@ -22,11 +22,17 @@ const StartLayoutStyled = styled.section`
 function StartLayout() {
     const userData = useSelector( state => state.userData )
     const navigate = useNavigate()
+    const [loggedIn, setLoggedIn] = useState(false)
     const movementList = () => navigate('/list')
+    console.log(userData)
+
+    useEffect(()=>{
+        if(userData) setLoggedIn(true)
+    }, [userData])
     
 
     
-    return (
+    if(loggedIn) return (
         <StartLayoutStyled>
             <div>
                 <span className="user-name">{userData.name} </span>
