@@ -13,7 +13,7 @@ function List() {
 
   const userData = useSelector( state => state.userData )
 
-  return(
+  if(userData) return(
     <Appwrap background='#FEFBEA' >
       <Header>{userData.name} 님의 칭찬</Header>
       <ListBody/>

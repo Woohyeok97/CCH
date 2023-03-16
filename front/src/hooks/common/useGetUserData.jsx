@@ -15,12 +15,11 @@ export default function useGetUserData() {
 
     useEffect(()=>{
         if(cookies.jwtToken) {
-            getUserDataFromJwtToken(cookies.jwtToken)   
+            getUserDataFromJwtToken(cookies.jwtToken)
         }
     },[])
-    console.log(userData)
 
-    const getUserDataFromJwtToken= (jwt)=> {
+    const getUserDataFromJwtToken= async (jwt)=> {
         dispatch( setUserData(jwt_decode(jwt)) )
     }
 
