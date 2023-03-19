@@ -17,12 +17,13 @@ import EditContent from "../component/edit/editContent";
 function Edit() {
     const currentContent = useSelector( state => state.currentContent )
     const navigate = useNavigate()
+    const userData = useSelector( state => state.userData )
 
     useEffect(()=>{
         if(!currentContent._id) navigate('/list')
     },[])
 
-    return (
+    if(userData) return (
         <AppWrap background="#FEFBEA">
             <Header>칭찬수정</Header>
             <LayoutBox direction="column" width="80%">

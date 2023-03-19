@@ -17,7 +17,7 @@ export default function useLogin() {
     const idToken = parsedHash.get("id_token");
     const accessToken = parsedHash.get("access_token");
     // 쿠키에 jwt를 저장하기 위한 cookies
-    const [ cookies, setCookies ] = useCookies(['jwtToken'])
+    const [ cookies, setCookies, removeCookies ] = useCookies(['jwtToken'])
     const dispatch = useDispatch()
 
     // 컴포넌트 첫 등장시, postIdToken 함수를 실행함
@@ -39,10 +39,15 @@ export default function useLogin() {
 
     // 쿠키에 jwt 토크을 삭제하는 함수
     const removeJWTinCookie = () => {
-        setCookies('jwtToken', null, { path : '/' })
+        if(confirm('로그아웃하려구?')) {
+            removeCookies('jwtToken', { path : '/' })
+            window.location.replace('/')
+        } else {
+            null
+        }
     }
 
    
 
-    return { isLoginning, cookies }
+    return { isLoginning, cookies, removeJWTinCookie }
 }

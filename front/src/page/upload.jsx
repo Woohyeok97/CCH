@@ -11,12 +11,15 @@ import LayoutBox from '../component/common/layoutBox'
 // component
 import UploadContent from '../component/upload/uploadContent'
 import UploadButton from '../component/upload/uploadButton'
+import { useSelector } from 'react-redux'
 
 
 
 function Upload() {
 
-  return(
+  const userData = useSelector( state => state.userData )
+
+  if(userData) return(
     <AppWrap background="#FEFBEA">
       <Header>오늘의 나 칭찬하기</Header>
       <LayoutBox direction="column" width="80%">

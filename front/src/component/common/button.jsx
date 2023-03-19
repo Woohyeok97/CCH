@@ -71,6 +71,8 @@ const COLOR = {
   green : css`
   background-color : #49ADFF;
   &:hover, active, focus { background-color : #76C8FF; }
+  `,
+  gray : css`
   `
 }
 

@@ -9,12 +9,10 @@ import Upload from './page/upload'
 import Edit from './page/edit'
 // custom hooks
 import useGetUserData from '../src/hooks/common/useGetUserData'
-import { useSelector } from 'react-redux'
 
 function App() {  
 
   const {  } = useGetUserData()
-  const userData = useSelector( state => state.userData )
 
   return (
     <div className="App">
