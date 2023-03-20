@@ -39,12 +39,8 @@ export default function useLogin() {
 
     // 쿠키에 jwt 토크을 삭제하는 함수
     const removeJWTinCookie = () => {
-        if(confirm('로그아웃하려구?')) {
-            removeCookies('jwtToken', { path : '/' })
-            window.location.replace('/')
-        } else {
-            null
-        }
+        removeCookies('jwtToken', { path : '/' })
+        window.location.replace('/')
     }
 
    
