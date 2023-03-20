@@ -8,7 +8,6 @@ import uploadSlice from "./upload";
 import currentMonthSlice from "./currentMonth";
 import currentContentSlice from "./currentContent";
 import userDataSlice from "./userData";
-import jwtSlice from "./jwt";
 
 // state를 만든후, export default로 configureStore 함수에 등록후 내보내준다.
 // configureStore함수에 파라미터로 객체를 넣고 그안에 reducer(상태변경기) 속성에 state.reducer들을 등록해준다.
@@ -20,7 +19,6 @@ export default configureStore({
         currentMonth : currentMonthSlice.reducer,
         currentContent : currentContentSlice.reducer,
         userData : userDataSlice.reducer,
-        jwtToken : jwtSlice.reducer,
     }
 })
 

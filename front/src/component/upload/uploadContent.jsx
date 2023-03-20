@@ -1,5 +1,6 @@
 /* eslint-disable */
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 //custom hooks
@@ -8,7 +9,12 @@ import useSetContent from '../../hooks/upload/useSetContent'
 
 function UploadContent({ basis }) {
 
-  const { setText } = useSetContent()
+  const { setText, setUserId } = useSetContent()
+  const userData = useSelector( state => state.userData )
+
+  useEffect(()=>{
+    setUserId(userData.userId)
+  }, [])
   
   return(
    <UploadContentStyled basis={basis}>

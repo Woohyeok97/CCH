@@ -40,7 +40,6 @@ router.post('/upload', (req, res)=>{
         userId : req.body.userId,
         date : req.body.date,
         text : req.body.text,
-        image : req.body.image,
     }, (에러, 결과)=>{
         if(!결과) return res.send({ message : '에러발생!', err : 에러 })
         res.send({ 결과 : 결과, message : '업로드요청 성공!' })

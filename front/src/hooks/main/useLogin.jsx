@@ -45,5 +45,5 @@ export default function useLogin() {
 
    
 
-    return { isLoginning, cookies, removeJWTinCookie }
+    return { isLoginning, removeJWTinCookie }
 }

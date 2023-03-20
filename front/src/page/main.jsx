@@ -16,13 +16,13 @@ import { useSelector } from 'react-redux'
 
 
 function Main() {
-  const { isLoginning, cookies } = useLogin()
+  const { isLoginning } = useLogin()
   const userData = useSelector( state => state.userData )
 
    if(isLoginning) return (
     <AppWrap background='#FDDF3F'>
       <Intro/>
-      { cookies.jwtToken ? <StartLayout/> : <GoogleLogin/> }
+      { userData ? <StartLayout/> : <GoogleLogin/> }
       <Footer/>
     </AppWrap>
   )

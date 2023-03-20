@@ -7,10 +7,9 @@ import { format } from "date-fns";
 
 // DB에 전송할 Content data를 담을 state 
 const initialState = {
-    userId : '123',
+    userId : '',
     date : format(new Date(), 'yyyy-MM-dd'),
     text : '',
-    image : '',
 }
 
 
@@ -18,14 +17,14 @@ const uploadSlice = createSlice({
     name : 'uploadState',
     initialState,
     reducers : {
+        userId : (state, action)=> {
+            state.userId = action.payload
+        },
         text : (state, action)=> {
             state.text = action.payload
-        },
-        image : (state, action)=> {
-            state.image = action.payload
         },
     }
 })
 
 export default uploadSlice
-export const { text, image } = uploadSlice.actions
+export const { text, userId } = uploadSlice.actions

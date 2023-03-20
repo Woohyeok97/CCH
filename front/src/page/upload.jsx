@@ -20,6 +20,7 @@ function Upload() {
   const userData = useSelector( state => state.userData )
 
   if(userData) return(
+
     <AppWrap background="#FEFBEA">
       <Header>오늘의 나 칭찬하기</Header>
       <LayoutBox direction="column" width="80%">
@@ -28,6 +29,7 @@ function Upload() {
         <UploadButton basis="30%"/>
       </LayoutBox>
     </AppWrap>
+    
   )
 }
 
