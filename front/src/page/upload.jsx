@@ -5,7 +5,6 @@ import React from 'react'
 import AppWrap from '../component/common/appWrap'
 import Header from '../component/common/header'
 import Title from '../component/common/title'
-import ImageUploadInput from '../component/common/imageUploadInput'
 import LayoutBox from '../component/common/layoutBox'
 
 // component
@@ -24,7 +23,6 @@ function Upload() {
     <AppWrap background="#FEFBEA">
       <Header>오늘의 나 칭찬하기</Header>
       <LayoutBox direction="column" width="80%">
-        <Title basis="10%">{ <ImageUploadInput>이미지 추가!</ImageUploadInput> }</Title>
         <UploadContent basis="60%"/>
         <UploadButton basis="30%"/>
       </LayoutBox>

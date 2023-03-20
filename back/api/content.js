@@ -20,8 +20,12 @@ router.use( express.urlencoded({ extended : true }) )
 
 // 해당달의 컨텐츠를 찾아서 보내주는 함수
 router.get('/get', (req, res)=>{
-    Post.find({ date : { $gte: new Date(req.query.startDate), $lte: req.query.endDate } },
-    (에러, 결과)=>{
+    Post.find({
+        $and : [
+            { date : { $gte: new Date(req.query.scopeOfDate.startDate), $lte: req.query.scopeOfDate.endDate } },
+            { userId : req.query.userId }
+        ]
+    }, (에러, 결과)=>{
         if(!결과) return res.send({ message : '에러발생!', err : 에러 })
         res.send(결과)
     })
@@ -29,7 +33,12 @@ router.get('/get', (req, res)=>{
 })
 // 오늘날짜에 포스트를 업로드 했는지 확인해주는 함수
 router.get('/isTodayUpload', (req, res)=>{
-    Post.findOne({ date : req.query.today }, (에러, 결과)=>{
+    Post.findOne({
+        $and : [
+            { userId : req.query.userId },
+            { date : req.query.today }
+        ]
+    }, (에러, 결과)=>{
         if(!결과) return res.send(false)
         res.send(true)
     })
@@ -47,7 +56,7 @@ router.post('/upload', (req, res)=>{
 })
 // DB에 있는 컨텐츠를 수정해주는 함수
 router.put('/edit', (req, res)=>{
-    Post.updateOne({ _id : req.body._id }, { $set : { text : req.body.text, image : req.body.image } },
+    Post.updateOne({ _id : req.body._id }, { $set : { text : req.body.text,  } },
         (에러, 결과)=>{
             if(!결과) return res.send({ message : 'content 수정요청실패..', err : 결과 })
             res.send({ 결과 : 결과, message : 'content수정성공!' })

@@ -12,6 +12,7 @@ import { setContentState  } from "../../store/content";
 
 export default function useGetContent() {
     const currentMonth = useSelector( state => state.currentMonth )
+    const userData = useSelector( state => state.userData )
     const dispatch = useDispatch()
     
     // 서버에서 content를 받아오는 코드
@@ -22,8 +23,8 @@ export default function useGetContent() {
     }
     // 서버한테 날짜범위를 주고 데이터를 받아와 content state에 저장해주는 함수
     const getContent = ()=>{
-        axios.get('http://localhost:3001/content/get', { params : scopeOfDate } )
-        .then((result)=>{ dispatch(setContentState (result.data)); })
+        axios.get('http://localhost:3001/content/get', { params : { scopeOfDate : scopeOfDate, userId : userData.userId } } )
+        .then((result)=>{ dispatch(setContentState(result.data)) })
         .catch((err)=>{ console.log('요청에러 발생...', err) })
     }
 

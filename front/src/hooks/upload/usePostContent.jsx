@@ -10,6 +10,7 @@ import { format } from "date-fns";
 export default function usePostContent() {
 
     const uploadContent = useSelector( state => state.upload )
+    const userData = useSelector( state => state.userData )
     const navigate = useNavigate()
     const [ isUploading, setIsUploading ] = useState(false)
 
@@ -19,7 +20,7 @@ export default function usePostContent() {
   
     // 사용자가 오늘 업로드 했는지 체크하는 함수
     const checkTodayUpload = async ()=> {
-        const submitData = { today : new Date(format(new Date(),' yyyy-MM-dd')) }
+        const submitData = { userId : userData.userId ,today : new Date(format(new Date(),' yyyy-MM-dd')) }
         const response = await axios.get('http://localhost:3001/content/isTodayUpload', { params : submitData })
         return response.data
     }

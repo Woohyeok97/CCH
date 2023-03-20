@@ -6,9 +6,7 @@ import { useNavigate } from "react-router";
 // common components
 import AppWrap from "../component/common/appWrap";
 import Header from "../component/common/header";
-import ImageUploadInput from "../component/common/imageUploadInput";
 import LayoutBox from "../component/common/layoutBox";
-import Title from "../component/common/title";
 
 // components
 import EditButton from "../component/edit/editButton";
@@ -27,7 +25,6 @@ function Edit() {
         <AppWrap background="#FEFBEA">
             <Header>칭찬수정</Header>
             <LayoutBox direction="column" width="80%">
-                <Title basis="10%" date={currentContent.date}>{ <ImageUploadInput>이미지 수정!</ImageUploadInput> }</Title>
                 <EditContent basis="60%"/>
                 <EditButton basis="30%"/>
             </LayoutBox>
