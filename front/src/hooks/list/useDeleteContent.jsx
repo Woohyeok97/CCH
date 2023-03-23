@@ -2,14 +2,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 
 export default function useDeleteContent() {
     const currentContent = useSelector( state => state.currentContent )
+    const [ cookie, ] = useCookies(['jwtToken'])
 
     // 해당 currendContent 삭제시, MongoDB에 delete요청을 해주는 함수
     const deleteContent = ()=> {
-        axios.delete('http://localhost:3001/content/delete', { data : { _id : currentContent._id } })
+        axios.delete('http://localhost:3001/content/delete', { 
+            data : { _id : currentContent._id },
+            headers : { Authorization: `Bearer ${cookie.jwtToken}` } 
+        })
         .then((result)=>{ alert( result.data.message , window.location.replace('/list')) })
         .catch((err)=>{ console.log(err) })
     }

@@ -6,10 +6,12 @@ import { useNavigate } from "react-router";
 
 // reducers
 import { editCurrentContent } from "../../store/currentContent";
+import { useCookies } from "react-cookie";
 
 
 export default function useEditContent() {
     const currentContent = useSelector( state => state.currentContent )
+    const [ cookie, ] = useCookies(['jwtToken'])
     const dispatch = useDispatch()
     const navigate = useNavigate()
     // 게시글 수정중에 사용자가 중복으로 버튼을 누르는것을 방지하기위한, 에딧팅 state
@@ -27,7 +29,9 @@ export default function useEditContent() {
         if(isEditing) return // 이미 수정중이라면 버튼을 눌러도 아무일도 안일어나게함
         setIsEditing(true) // 수정중이 아니라면 isEditing을 true로 바꾸고 수정시작
         try {
-            const response = await axios.put('http://localhost:3001/content/edit', currentContent)
+            const response = await axios.put('http://localhost:3001/content/edit', 
+            currentContent,
+            { headers : { Authorization: `Bearer ${cookie.jwtToken}` } })
             alert(response.data.message)
             navigate('/list')
         }

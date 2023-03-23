@@ -5,12 +5,14 @@ import { useSelector } from "react-redux";
 import axios from 'axios'
 // date-fns
 import { format } from "date-fns";
+import { useCookies } from "react-cookie";
 
 
 export default function usePostContent() {
 
     const uploadContent = useSelector( state => state.upload )
     const userData = useSelector( state => state.userData )
+    const [ cookie, ] = useCookies(['jwtToken'])
     const navigate = useNavigate()
     const [ isUploading, setIsUploading ] = useState(false)
 
@@ -41,7 +43,9 @@ export default function usePostContent() {
         }
 
         try {
-            await axios.post('http://localhost:3001/content/upload', uploadContent );
+            await axios.post('http://localhost:3001/content/upload', 
+            uploadContent,
+            { headers : { Authorization: `Bearer ${cookie.jwtToken}` } });
             alert(`칭찬해~`)
             navigate('/list')
 

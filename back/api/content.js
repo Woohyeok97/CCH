@@ -60,9 +60,9 @@ router.get('/isTodayUpload', (req, res)=>{
     })
 })
 // DB에 포스트를 업로드 하는 함수
-router.post('/upload', (req, res)=>{
+router.post('/upload', verifyJWT, (req, res)=>{
     Post.create({
-        userId : req.body.userId,
+        userId : req.user.userId,
         date : req.body.date,
         text : req.body.text,
     }, (에러, 결과)=>{
@@ -71,7 +71,7 @@ router.post('/upload', (req, res)=>{
     })
 })
 // DB에 있는 컨텐츠를 수정해주는 함수
-router.put('/edit', (req, res)=>{
+router.put('/edit', verifyJWT, (req, res)=>{
     Post.updateOne({ _id : req.body._id }, { $set : { text : req.body.text,  } },
         (에러, 결과)=>{
             if(!결과) return res.send({ message : 'content 수정요청실패..', err : 결과 })
@@ -79,7 +79,7 @@ router.put('/edit', (req, res)=>{
         })
 })
 // DB에 있는 컨텐츠를 삭제해주는 함수
-router.delete('/delete', (req, res)=>{
+router.delete('/delete', verifyJWT, (req, res)=>{
     Post.deleteOne({ _id : req.body._id }, (에러, 결과)=>{
         if(!결과) return res.send({ message : 'content 삭제요청실패..', err : 에러 })
         res.send({ 결과 : 결과, message : 'content삭제성공! 다음에 또 칭찬해~' })
