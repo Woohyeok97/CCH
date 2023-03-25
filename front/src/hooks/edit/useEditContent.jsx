@@ -14,6 +14,7 @@ export default function useEditContent() {
     const [ cookie, ] = useCookies(['jwtToken'])
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    
     // 게시글 수정중에 사용자가 중복으로 버튼을 누르는것을 방지하기위한, 에딧팅 state
     // 사용자가 여러번 수정버튼을 눌러, 불필요한 재렌더링을 막기위함
     const [ isEditing, setIsEditing ] = useState(false)

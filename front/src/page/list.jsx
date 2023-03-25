@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import Appwrap from '../component/common/appWrap'
 import Header from '../component/common/header'
 import ListBody from '../component/list/listBody'
+import useAuth from '../hooks/common/useAuth'
 
 
 
@@ -12,8 +13,9 @@ import ListBody from '../component/list/listBody'
 function List() {
 
   const userData = useSelector( state => state.userData )
+  const {  } = useAuth()
 
-  if(userData) return(
+  return(
     <Appwrap background='#FEFBEA' >
       <Header>{userData.name} 님의 칭찬</Header>
       <ListBody/>

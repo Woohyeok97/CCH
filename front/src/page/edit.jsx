@@ -12,16 +12,18 @@ import LayoutBox from "../component/common/layoutBox";
 import EditButton from "../component/edit/editButton";
 import EditContent from "../component/edit/editContent";
 
+import useAuth from "../hooks/common/useAuth";
+
 function Edit() {
     const currentContent = useSelector( state => state.currentContent )
     const navigate = useNavigate()
-    const userData = useSelector( state => state.userData )
+    const {  } = useAuth()
 
     useEffect(()=>{
         if(!currentContent._id) navigate('/list')
     },[])
 
-    if(userData) return (
+    return (
         <AppWrap background="#FEFBEA">
             <Header>칭찬수정</Header>
             <LayoutBox direction="column" width="80%">

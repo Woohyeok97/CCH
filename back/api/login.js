@@ -44,7 +44,6 @@ const verifyIdToken = async (req, res, next) => {
 }
 
 
-
 router.post('/getJWT',verifyIdToken, async (req, res) => {
 
     // 시크릿키와, 미들웨어를 통해 받은 사용자정보를 저장
@@ -61,6 +60,16 @@ router.post('/getJWT',verifyIdToken, async (req, res) => {
     // 발급한 jwt토큰을 전달
     res.send({ jwtToken : jwtToken });
 });
+
+
+router.post('/authJWT', (req, res)=>{
+    const decoded = jwt.verify(req.body.jwtToken, 'sdwfrfsdefgewsdasdsde23ds')
+    if(decoded) {
+      res.send({ authResult : true })
+    } else {
+      res.send({ authResult : false })
+    }
+})
 
 module.exports = router;
 

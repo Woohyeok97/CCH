@@ -4,21 +4,21 @@ import React from 'react'
 // common components
 import AppWrap from '../component/common/appWrap'
 import Header from '../component/common/header'
-import Title from '../component/common/title'
 import LayoutBox from '../component/common/layoutBox'
 
 // component
 import UploadContent from '../component/upload/uploadContent'
 import UploadButton from '../component/upload/uploadButton'
-import { useSelector } from 'react-redux'
+
+import useAuth from '../hooks/common/useAuth'
 
 
 
 function Upload() {
 
-  const userData = useSelector( state => state.userData )
+  const {  } = useAuth()
 
-  if(userData) return(
+  return(
 
     <AppWrap background="#FEFBEA">
       <Header>오늘의 나 칭찬하기</Header>

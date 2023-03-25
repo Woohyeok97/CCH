@@ -24,7 +24,6 @@ const verifyJWT = (req, res, next) => {
     // jwt.verify메소드로 검증에 성공하면 라우터로 넘어감
     try {
         const decoded = jwt.verify(jwtToken, 'sdwfrfsdefgewsdasdsde23ds')
-        console.log('jwt인증성공!')
         req.user = decoded
         next()
     // 유효하지않은 jwt토큰일시 에러를 알려줌 
