@@ -11,6 +11,8 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
+    "heroku-prebuild" : "cd front && yarn install --production && yarn build && mv build ../back" ,
+    "deployment" : "cd back && yarn install --production && yarn server",
     "server": "cd back && nodemon server",
     "client": "cd front && yarn start",
     "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
