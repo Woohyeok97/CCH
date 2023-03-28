@@ -12,7 +12,7 @@
   },
   "scripts": {
     "project-install" : "cd ./front && yarn install --production" ,
-    "project-build " : "cd ./front && yarn build && rm -rf ../back/build && mv build ../back",
+    "project-build" : "cd ./front && yarn build && rm -rf ../back/build && mv build ../back",
     "deployment" : "cd ./back && yarn install --production && cd ../ && yarn server",
     "server": "cd back && nodemon server",
     "client": "cd front && yarn start",
