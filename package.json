@@ -11,7 +11,7 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "project-install" : "cd /CCH/front && yarn install && yarn build && mv build ../back" ,
+    "project-install" : "cd /app/front && yarn install && yarn build && mv build ../back" ,
     "project-build" : "cd front && yarn build && rm -rf ../back/build && mv build ../back",
     "deployment" : "cd back && yarn install --production && cd ../ && yarn server",
     "server": "cd back && nodemon server",
