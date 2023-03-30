@@ -9,11 +9,11 @@ connect(); // connect 함수를 실행함
 
 app.use(cors())
 app.use('/', api) //api 사용하기
-app.use(express.static('build')) // 빌드된 파일을 서버가 사용할수있게 허용해줌 
-// 배포시, 클라이언트 파일을 서버가 전송해줌
-app.get('*', (req, res)=>{
-    res.sendFile(__dirname + '/build/index.html')
-})
+// app.use(express.static('build')) // 빌드된 파일을 서버가 사용할수있게 허용해줌 
+// // 배포시, 클라이언트 파일을 서버가 전송해줌
+// app.get('*', (req, res)=>{
+//     res.sendFile(__dirname + '/build/index.html')
+// })
 
 
 
