@@ -11,7 +11,7 @@ export default function useDeleteContent() {
 
     // 해당 currendContent 삭제시, MongoDB에 delete요청을 해주는 함수
     const deleteContent = ()=> {
-        axios.delete('http://localhost:3001/content/delete', { 
+        axios.delete('https://port-0-cch-server-p8xrq2mlfs3c9q1.sel3.cloudtype.app/content/delete', { 
             data : { _id : currentContent._id },
             headers : { Authorization: `Bearer ${cookie.jwtToken}` } 
         })

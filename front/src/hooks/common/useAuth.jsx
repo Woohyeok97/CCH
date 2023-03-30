@@ -19,7 +19,7 @@ export default function useAuth() {
             return
         }
 
-        const response = await axios.post('http://localhost:3001/login/authJWT', { jwtToken : cookie.jwtToken })
+        const response = await axios.post('https://port-0-cch-server-p8xrq2mlfs3c9q1.sel3.cloudtype.app/login/authJWT', { jwtToken : cookie.jwtToken })
         if(response.data.authResult) {
             console.log('인증된사용자입니다.')
             return

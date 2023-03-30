@@ -25,7 +25,7 @@ export default function useGetContent() {
     
     // 서버한테 날짜범위를 주고 데이터를 받아와 content state에 저장해주는 함수
     const getContent = ()=>{
-        axios.get('http://localhost:3001/content/get', { 
+        axios.get('https://port-0-cch-server-p8xrq2mlfs3c9q1.sel3.cloudtype.app/content/get', { 
             params : scopeOfDate ,
             headers : { Authorization: `Bearer ${cookie.jwtToken}` }
         })

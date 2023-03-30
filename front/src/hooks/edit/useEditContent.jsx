@@ -30,7 +30,7 @@ export default function useEditContent() {
         if(isEditing) return // 이미 수정중이라면 버튼을 눌러도 아무일도 안일어나게함
         setIsEditing(true) // 수정중이 아니라면 isEditing을 true로 바꾸고 수정시작
         try {
-            const response = await axios.put('http://localhost:3001/content/edit', 
+            const response = await axios.put('https://port-0-cch-server-p8xrq2mlfs3c9q1.sel3.cloudtype.app/content/edit', 
             currentContent,
             { headers : { Authorization: `Bearer ${cookie.jwtToken}` } })
             alert(response.data.message)

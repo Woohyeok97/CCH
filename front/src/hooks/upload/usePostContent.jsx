@@ -23,7 +23,7 @@ export default function usePostContent() {
     // 사용자가 오늘 업로드 했는지 체크하는 함수
     const checkTodayUpload = async ()=> {
         const submitData = { userId : userData.userId ,today : new Date(format(new Date(),' yyyy-MM-dd')) }
-        const response = await axios.get('http://localhost:3001/content/isTodayUpload', { params : submitData })
+        const response = await axios.get('https://port-0-cch-server-p8xrq2mlfs3c9q1.sel3.cloudtype.app/content/isTodayUpload', { params : submitData })
         return response.data
     }
     // 서버에 사용자가 작성한 컨텐츠를 전송하는 함수
@@ -43,7 +43,7 @@ export default function usePostContent() {
         }
 
         try {
-            await axios.post('http://localhost:3001/content/upload', 
+            await axios.post('https://port-0-cch-server-p8xrq2mlfs3c9q1.sel3.cloudtype.app/content/upload', 
             uploadContent,
             { headers : { Authorization: `Bearer ${cookie.jwtToken}` } });
             alert(`칭찬해~`)
