@@ -17,7 +17,7 @@ function GoogleLogin() {
   const googleLoginHref = 
   "https://accounts.google.com/o/oauth2/auth?" +
   "client_id=502387057863-ca5enr2rm47gsqjidg5jd6l6aavn5r3o.apps.googleusercontent.com&"+
-  "redirect_uri=http://localhost:3001/&"+
+  "redirect_uri=http://localhost:3000/&"+
   "response_type=id_token%20token&"+
   "scope=openid email profile";
 
